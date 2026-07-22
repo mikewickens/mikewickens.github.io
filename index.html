@@ -38,7 +38,10 @@
 
   /* ---- hero ---- */
   header.hero{position:relative;min-height:92vh;display:flex;align-items:center;
-    background:linear-gradient(180deg,rgba(5,14,24,.35) 0%,rgba(5,14,24,.72) 55%,var(--bg) 100%),url('img/hero.jpg');
+    background:
+      radial-gradient(ellipse 78% 62% at 50% 47%, rgba(5,14,24,.74) 0%, rgba(5,14,24,.30) 78%, rgba(5,14,24,0) 100%),
+      linear-gradient(180deg,rgba(5,14,24,.42) 0%,rgba(5,14,24,.6) 45%,rgba(5,14,24,.82) 72%,var(--bg) 100%),
+      url('img/hero.jpg');
     background-size:cover;background-position:center;text-align:center}
   .hero-inner{width:100%;padding:5rem 1.25rem 6rem}
   .logo-title{font-size:clamp(2.6rem,8vw,5.3rem);font-weight:800;letter-spacing:.05em;line-height:.98;text-transform:uppercase;
