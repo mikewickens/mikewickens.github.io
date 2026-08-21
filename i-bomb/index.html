@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>i-Bomb — MW Design</title>
+<meta name="description" content="i-Bomb — an arcade platformer in the Bomb Jack tradition. Clear every bomb, chain the lit ones, and fly. Twenty-four hand-built stages across two tours. Coming to itch.io.">
+<meta property="og:title" content="i-Bomb">
+<meta property="og:description" content="Clear every bomb on the screen, chain the lit ones for the big score, and fly. An arcade platformer from MW Design.">
+<meta property="og:image" content="https://mikewickens.github.io/img/ibomb/hero.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="../img/icon.png">
+<style>
+  :root{
+    --bg:#0b0716; --bg2:#140c26; --panel:rgba(42,24,68,.5);
+    --gold:#ffc454; --gold-bright:#ffd98a; --ember:#ff5a4d; --amber:#ffb020;
+    --text:#e8dff5; --dim:#a294bd; --line:rgba(255,196,84,.26);
+    --itch:#fa5c5c;
+    color-scheme:dark;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+  a{color:var(--gold)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 1.25rem}
+  .eyebrow{letter-spacing:.32em;text-transform:uppercase;font-size:.72rem;color:var(--gold);font-weight:600}
+
+  /* ---- top nav ---- */
+  nav{position:sticky;top:0;z-index:50;background:rgba(11,7,22,.84);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{display:flex;align-items:center;gap:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.9rem;color:#fff;text-decoration:none}
+  .brand img{width:30px;height:30px;border-radius:7px}
+  .nav-cta{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,196,84,.14);color:var(--gold-bright);
+    text-decoration:none;font-weight:600;font-size:.82rem;padding:.5rem .95rem;border-radius:8px;border:1px solid var(--line)}
+
+  /* ---- hero ---- */
+  header.hero{position:relative;min-height:78vh;display:flex;align-items:center;
+    background:
+      radial-gradient(ellipse 80% 62% at 50% 46%, rgba(11,7,22,.62) 0%, rgba(11,7,22,.28) 74%, rgba(11,7,22,0) 100%),
+      linear-gradient(180deg,rgba(11,7,22,.46) 0%,rgba(11,7,22,.55) 42%,rgba(11,7,22,.86) 74%,var(--bg) 100%),
+      url('../img/ibomb/hero.jpg');
+    background-size:cover;background-position:center bottom;text-align:center}
+  .hero-inner{width:100%;padding:4rem 1.25rem 5rem}
+  .hero-logo{width:min(660px,88vw);height:auto;filter:drop-shadow(0 10px 34px rgba(0,0,0,.65))}
+  .hero-sub{margin-top:.8rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold-bright);
+    font-size:clamp(.72rem,2.2vw,1rem);font-weight:600}
+  .hero-tag{margin:1.5rem auto 0;max-width:600px;color:#d6c9ea;font-size:1.05rem}
+  .cta-row{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+  .btn{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:700;border-radius:11px;
+    padding:.9rem 1.5rem;font-size:1rem;transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-itch{background:var(--itch);color:#fff;box-shadow:0 8px 26px rgba(250,92,92,.34)}
+  .btn-ghost{background:rgba(255,196,84,.08);color:var(--gold-bright);border:1px solid var(--line)}
+  .meta-line{margin-top:1.5rem;color:var(--dim);font-size:.82rem;letter-spacing:.08em}
+  .meta-line b{color:var(--gold-bright)}
+
+  section{padding:5rem 0;position:relative}
+  .sec-head{text-align:center;margin-bottom:3rem}
+  .sec-head h2{font-size:clamp(1.7rem,4vw,2.5rem);letter-spacing:.03em;margin-top:.5rem;color:#fff5e4}
+  .sec-head p{color:var(--dim);margin-top:.6rem;max-width:600px;margin-inline:auto}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+  .feat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.6rem;position:relative;overflow:hidden}
+  .feat::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:linear-gradient(var(--gold),transparent)}
+  .feat .ico{font-size:1.6rem;margin-bottom:.7rem}
+  .feat h3{font-size:1.05rem;color:#fff5e4;letter-spacing:.02em}
+  .feat p{color:var(--dim);font-size:.93rem;margin-top:.4rem}
+
+  /* ---- in motion ---- */
+  .video-frame{max-width:900px;margin:0 auto;border-radius:16px;overflow:hidden;border:1px solid var(--line);
+    box-shadow:0 20px 60px rgba(0,0,0,.6);background:#000}
+  .video-frame video{width:100%;display:block}
+  .caption{text-align:center;color:var(--dim);font-size:.86rem;margin-top:1rem}
+
+  /* ---- screenshots ---- */
+  .shots{display:flex;gap:1rem;overflow-x:auto;padding:.5rem .25rem 1.5rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .shots img{height:300px;border-radius:12px;border:1px solid var(--line);scroll-snap-align:center;flex:0 0 auto;cursor:zoom-in;transition:transform .2s}
+  .shots img:hover{transform:scale(1.02)}
+  .shots::-webkit-scrollbar{height:8px}
+  .shots::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
+
+  .studio{background:linear-gradient(180deg,var(--bg),var(--bg2));border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+  .studio p{color:var(--dim);max-width:540px;margin:.6rem auto 0}
+
+  .final{text-align:center}
+  .final h2{font-size:clamp(1.8rem,5vw,3rem);color:#fff5e4}
+
+  footer{border-top:1px solid var(--line);padding:2.4rem 0;text-align:center;color:var(--dim);font-size:.85rem}
+  footer a{color:#d6c9ea;text-decoration:none;margin:0 .5rem}
+
+  .lb{position:fixed;inset:0;background:rgba(6,3,12,.93);display:none;align-items:center;justify-content:center;z-index:100;padding:1.5rem;cursor:zoom-out}
+  .lb.open{display:flex}
+  .lb img{max-width:100%;max-height:100%;border-radius:12px;border:1px solid var(--line)}
+  @media(max-width:640px){.shots img{height:220px}header.hero{min-height:86vh}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../img/icon.png" alt="MW Design"> MW Design</a>
+    <a class="nav-cta" href="#release">Coming to itch.io</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-inner wrap">
+    <img class="hero-logo" src="../img/ibomb/logo.png" alt="i-Bomb">
+    <div class="hero-sub">Clear the screen</div>
+    <p class="hero-tag">An arcade platformer in the Bomb Jack tradition. Every bomb on the screen has to go — but one of them is lit, and taking them in order is where the score lives.</p>
+    <div class="cta-row">
+      <a class="btn btn-itch" href="#release">Coming to itch.io</a>
+      <a class="btn btn-ghost" href="#motion">▶ See it move</a>
+    </div>
+    <div class="meta-line"><b>24 stages</b> · Two tours · Keyboard, gamepad &amp; touch · Built in <b>Godot 4</b></div>
+  </div>
+</header>
+
+<section id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">How it plays</div>
+      <h2>Anyone can clear a screen</h2>
+      <p>Clearing it <em>well</em> is the game. One bomb is always lit, and it is never the one nearest you.</p>
+    </div>
+    <div class="grid">
+      <div class="feat"><div class="ico">💣</div><h3>Twenty bombs, one lit</h3>
+        <p>Take the lit one and the chain climbs. Take any other and it breaks. The route is the whole decision.</p></div>
+      <div class="feat"><div class="ico">🦸</div><h3>Jump, then fly</h3>
+        <p>The jump is enormous. Press again in the air and you hover — hold it, tap it, steer it. Nothing is out of reach if you commit.</p></div>
+      <div class="feat"><div class="ico">🔴</div><h3>The i-Bomb</h3>
+        <p>The last bomb is red, and it only appears once every black one is gone. It lands somewhere new every single run.</p></div>
+      <div class="feat"><div class="ico">🗺️</div><h3>Two tours, 24 stages</h3>
+        <p>Twelve single-screen Classic stages, and twelve Arcade stages three screens wide with fifty bombs apiece.</p></div>
+      <div class="feat"><div class="ico">⚡</div><h3>Seven power-ups</h3>
+        <p>Shield, Magnet, Time, Double score, Overcharge and a one-up — earned by playing well, not by waiting.</p></div>
+      <div class="feat"><div class="ico">🎮</div><h3>Play it your way</h3>
+        <p>Keyboard, Xbox pad, PlayStation pad or touch controls, with safe-area layout on handhelds.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="motion" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">In motion</div>
+      <h2>The title screen plays itself</h2>
+      <p>He flies a circuit, sets down, and waits. Then the i-Bomb turns up.</p>
+    </div>
+    <div class="video-frame">
+      <video src="../img/ibomb/titlescreen.mp4" poster="../img/ibomb/titlescreen-poster.jpg"
+             autoplay muted loop playsinline preload="metadata"></video>
+    </div>
+    <p class="caption">Captured live from the game's own attract mode.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Twelve worlds</div>
+      <h2>Every stage hand-built</h2>
+      <p>Desert ruins to orbital stations. Tap any shot to enlarge.</p>
+    </div>
+    <div class="shots">
+      <img src="../img/ibomb/shot-desert.jpg" alt="Desert Ruins — the opening stage, bombs on sunlit ledges" loading="lazy">
+      <img src="../img/ibomb/shot-temple.jpg" alt="Sky Temple — floating islands above the clouds" loading="lazy">
+      <img src="../img/ibomb/shot-neon.jpg" alt="Neon Gates — a rain-lit cyberpunk skyline" loading="lazy">
+      <img src="../img/ibomb/shot-deep.jpg" alt="Deep Currents — an underwater city" loading="lazy">
+      <img src="../img/ibomb/shot-orbital.jpg" alt="Orbital Drift — a space station above the Earth" loading="lazy">
+      <img src="../img/ibomb/shot-mansion.jpg" alt="The Long Night — a moonlit haunted mansion" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="studio">
+  <div class="wrap">
+    <div class="eyebrow">The studio</div>
+    <h2 style="font-size:1.6rem;color:#fff5e4;margin:.4rem 0 .2rem">MW Design</h2>
+    <p>An independent studio crafting mobile games, Wear&nbsp;OS arcade titles and custom smartwatch watch faces since 2016. Every stage, sprite and note of music in i-Bomb was made in-house.</p>
+    <div class="cta-row">
+      <a class="btn btn-ghost" href="../">See our other games</a>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="release">
+  <div class="wrap">
+    <h2>Not out yet</h2>
+    <p style="color:var(--dim);max-width:520px;margin:1rem auto 0">
+      i-Bomb is in development and heading for itch.io. The soundtrack — all twelve stage themes,
+      written for the game — will be released alongside it.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-itch" href="https://mikewickens.itch.io/">Follow on itch.io</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 MW Design</div>
+    <div style="margin-top:.6rem">
+      <a href="../">MW Design</a>·
+      <a href="../modern-domination/">Modern Domination</a>·
+      <a href="mailto:mwdesignhelp@gmail.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lb"><img src="" alt=""></div>
+<script>
+  const lb=document.getElementById('lb'),lbImg=lb.querySelector('img');
+  document.querySelectorAll('.shots img').forEach(i=>i.addEventListener('click',()=>{lbImg.src=i.src;lb.classList.add('open')}));
+  lb.addEventListener('click',()=>lb.classList.remove('open'));
+</script>
+</body>
+</html>
