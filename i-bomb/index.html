@@ -73,12 +73,19 @@
   .video-frame video{width:100%;display:block}
   .caption{text-align:center;color:var(--dim);font-size:.86rem;margin-top:1rem}
 
-  /* ---- screenshots ---- */
-  .shots{display:flex;gap:1rem;overflow-x:auto;padding:.5rem .25rem 1.5rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-  .shots img{height:300px;border-radius:12px;border:1px solid var(--line);scroll-snap-align:center;flex:0 0 auto;cursor:zoom-in;transition:transform .2s}
-  .shots img:hover{transform:scale(1.02)}
-  .shots::-webkit-scrollbar{height:8px}
-  .shots::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
+  /* ---- screenshots: one gallery, all 24 ---- */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.1rem}
+  .tile{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;
+    display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+  .tile:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.45)}
+  .tile img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;cursor:zoom-in}
+  .tile figcaption{padding:.6rem .8rem .75rem;font-size:.86rem;color:#fff5e4;
+    display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap}
+  .tile figcaption em{color:var(--dim);font-style:normal;font-size:.8rem;margin-left:auto}
+  .tag{font-size:.66rem;letter-spacing:.14em;font-weight:700;padding:.16rem .42rem;
+    border-radius:5px;text-transform:uppercase}
+  .tag.classic{background:rgba(255,196,84,.16);color:var(--gold-bright);border:1px solid var(--line)}
+  .tag.arcade{background:rgba(255,90,77,.16);color:#ff9a90;border:1px solid rgba(255,90,77,.3)}
 
   .studio{background:linear-gradient(180deg,var(--bg),var(--bg2));border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
   .studio p{color:var(--dim);max-width:540px;margin:.6rem auto 0}
@@ -92,7 +99,7 @@
   .lb{position:fixed;inset:0;background:rgba(6,3,12,.93);display:none;align-items:center;justify-content:center;z-index:100;padding:1.5rem;cursor:zoom-out}
   .lb.open{display:flex}
   .lb img{max-width:100%;max-height:100%;border-radius:12px;border:1px solid var(--line)}
-  @media(max-width:640px){.shots img{height:220px}header.hero{min-height:86vh}}
+  @media(max-width:640px){.gallery{grid-template-columns:1fr}header.hero{min-height:86vh}}
 </style>
 </head>
 <body>
@@ -117,6 +124,128 @@
   </div>
 </header>
 
+<section id="stages">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Twenty-four stages</div>
+      <h2>Every stage hand-built</h2>
+      <p>Twelve worlds, each played twice &mdash; once as a single screen, once as a wide
+         arcade run of fifty bombs. Tap any shot to enlarge.</p>
+    </div>
+    <div class="gallery">
+      <figure class="tile" data-tour="classic">
+        <img src="../img/ibomb/stage-01.jpg" alt="Classic 01 — First Light, in Desert Ruins" loading="lazy">
+        <figcaption><span class="tag classic">CLASSIC 01</span> First Light<em>Desert Ruins</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="classic">
+        <img src="../img/ibomb/stage-02.jpg" alt="Classic 02 — The Spire, in Enchanted Forest" loading="lazy">
+        <figcaption><span class="tag classic">CLASSIC 02</span> The Spire<em>Enchanted Forest</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="classic">
+        <img src="../img/ibomb/stage-03.jpg" alt="Classic 03 — Shift Change, in Clockwork City" loading="lazy">
+        <figcaption><span class="tag classic">CLASSIC 03</span> Shift Change<em>Clockwork City</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="classic">
+        <img src="../img/ibomb/stage-04.jpg" alt="Classic 04 — The Long Gaps, in Storm Peaks" loading="lazy">
+        <figcaption><span class="tag classic">CLASSIC 04</span> The Long Gaps<em>Storm Peaks</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="classic">
+        <img src="../img/ibomb/stage-05.jpg" alt="Classic 05 — Nothing Holds, in Sky Temple" loading="lazy">
+        <figcaption><span class="tag classic">CLASSIC 05</span> Nothing Holds<em>Sky Temple</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="classic">
+        <img src="../img/ibomb/stage-06.jpg" alt="Classic 06 — Neon Gates, in Tokyo Nights" loading="lazy">
+        <figcaption><span class="tag classic">CLASSIC 06</span> Neon Gates<em>Tokyo Nights</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="classic">
+        <img src="../img/ibomb/stage-07.jpg" alt="Classic 07 — Rooftop Hours, in London Skyline" loading="lazy">
+        <figcaption><span class="tag classic">CLASSIC 07</span> Rooftop Hours<em>London Skyline</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="classic">
+        <img src="../img/ibomb/stage-08.jpg" alt="Classic 08 — Ash and Iron, in Volcanic Island" loading="lazy">
+        <figcaption><span class="tag classic">CLASSIC 08</span> Ash and Iron<em>Volcanic Island</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="classic">
+        <img src="../img/ibomb/stage-09.jpg" alt="Classic 09 — Deep Currents, in Underwater City" loading="lazy">
+        <figcaption><span class="tag classic">CLASSIC 09</span> Deep Currents<em>Underwater City</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="classic">
+        <img src="../img/ibomb/stage-10.jpg" alt="Classic 10 — The Circuit, in Night Carnival" loading="lazy">
+        <figcaption><span class="tag classic">CLASSIC 10</span> The Circuit<em>Night Carnival</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="classic">
+        <img src="../img/ibomb/stage-11.jpg" alt="Classic 11 — Drift, in Orbital Station" loading="lazy">
+        <figcaption><span class="tag classic">CLASSIC 11</span> Drift<em>Orbital Station</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="classic">
+        <img src="../img/ibomb/stage-12.jpg" alt="Classic 12 — The Long Night, in Haunted Mansion" loading="lazy">
+        <figcaption><span class="tag classic">CLASSIC 12</span> The Long Night<em>Haunted Mansion</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="arcade">
+        <img src="../img/ibomb/stage-13.jpg" alt="Arcade 01 — Endless Dunes, in Desert Ruins" loading="lazy">
+        <figcaption><span class="tag arcade">ARCADE 01</span> Endless Dunes<em>Desert Ruins</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="arcade">
+        <img src="../img/ibomb/stage-14.jpg" alt="Arcade 02 — The Deep Spire, in Enchanted Forest" loading="lazy">
+        <figcaption><span class="tag arcade">ARCADE 02</span> The Deep Spire<em>Enchanted Forest</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="arcade">
+        <img src="../img/ibomb/stage-15.jpg" alt="Arcade 03 — Shift Change, in Clockwork City" loading="lazy">
+        <figcaption><span class="tag arcade">ARCADE 03</span> Shift Change<em>Clockwork City</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="arcade">
+        <img src="../img/ibomb/stage-16.jpg" alt="Arcade 04 — The Long Gaps, in Storm Peaks" loading="lazy">
+        <figcaption><span class="tag arcade">ARCADE 04</span> The Long Gaps<em>Storm Peaks</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="arcade">
+        <img src="../img/ibomb/stage-17.jpg" alt="Arcade 05 — Nothing Holds, in Sky Temple" loading="lazy">
+        <figcaption><span class="tag arcade">ARCADE 05</span> Nothing Holds<em>Sky Temple</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="arcade">
+        <img src="../img/ibomb/stage-18.jpg" alt="Arcade 06 — Neon Gates, in Tokyo Nights" loading="lazy">
+        <figcaption><span class="tag arcade">ARCADE 06</span> Neon Gates<em>Tokyo Nights</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="arcade">
+        <img src="../img/ibomb/stage-19.jpg" alt="Arcade 07 — Rooftop Hours, in London Skyline" loading="lazy">
+        <figcaption><span class="tag arcade">ARCADE 07</span> Rooftop Hours<em>London Skyline</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="arcade">
+        <img src="../img/ibomb/stage-20.jpg" alt="Arcade 08 — Ash and Iron, in Volcanic Island" loading="lazy">
+        <figcaption><span class="tag arcade">ARCADE 08</span> Ash and Iron<em>Volcanic Island</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="arcade">
+        <img src="../img/ibomb/stage-21.jpg" alt="Arcade 09 — Deep Currents, in Underwater City" loading="lazy">
+        <figcaption><span class="tag arcade">ARCADE 09</span> Deep Currents<em>Underwater City</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="arcade">
+        <img src="../img/ibomb/stage-22.jpg" alt="Arcade 10 — The Circuit, in Night Carnival" loading="lazy">
+        <figcaption><span class="tag arcade">ARCADE 10</span> The Circuit<em>Night Carnival</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="arcade">
+        <img src="../img/ibomb/stage-23.jpg" alt="Arcade 11 — Drift, in Orbital Station" loading="lazy">
+        <figcaption><span class="tag arcade">ARCADE 11</span> Drift<em>Orbital Station</em></figcaption>
+      </figure>
+      <figure class="tile" data-tour="arcade">
+        <img src="../img/ibomb/stage-24.jpg" alt="Arcade 12 — The Long Night, in Haunted Mansion" loading="lazy">
+        <figcaption><span class="tag arcade">ARCADE 12</span> The Long Night<em>Haunted Mansion</em></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+<section id="motion" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">In motion</div>
+      <h2>The title screen plays itself</h2>
+      <p>He flies a circuit, sets down, and waits. The i-Bomb turns up on the far side, he goes and gets it — then flies a victory lap, lands on the opposite side, and the next world fades in behind him. All twelve, before you have pressed anything.</p>
+    </div>
+    <div class="video-frame">
+      <video src="../img/ibomb/titlescreen.mp4" poster="../img/ibomb/titlescreen-poster.jpg"
+             autoplay muted loop playsinline preload="metadata"></video>
+    </div>
+    <p class="caption">Captured live from the game&rsquo;s own attract mode. Nothing here is scripted for the trailer.</p>
+  </div>
+</section>
 <section id="features">
   <div class="wrap">
     <div class="sec-head">
@@ -137,39 +266,6 @@
         <p>Shield, Magnet, Time, Double score, Overcharge and a one-up — earned by playing well, not by waiting.</p></div>
       <div class="feat"><div class="ico">🎮</div><h3>Play it your way</h3>
         <p>Keyboard, Xbox pad, PlayStation pad or touch controls, with safe-area layout on handhelds.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="motion" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">In motion</div>
-      <h2>The title screen plays itself</h2>
-      <p>He flies a circuit, sets down, and waits. Then the i-Bomb turns up.</p>
-    </div>
-    <div class="video-frame">
-      <video src="../img/ibomb/titlescreen.mp4" poster="../img/ibomb/titlescreen-poster.jpg"
-             autoplay muted loop playsinline preload="metadata"></video>
-    </div>
-    <p class="caption">Captured live from the game's own attract mode.</p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Twelve worlds</div>
-      <h2>Every stage hand-built</h2>
-      <p>Desert ruins to orbital stations. Tap any shot to enlarge.</p>
-    </div>
-    <div class="shots">
-      <img src="../img/ibomb/shot-desert.jpg" alt="Desert Ruins — the opening stage, bombs on sunlit ledges" loading="lazy">
-      <img src="../img/ibomb/shot-temple.jpg" alt="Sky Temple — floating islands above the clouds" loading="lazy">
-      <img src="../img/ibomb/shot-neon.jpg" alt="Neon Gates — a rain-lit cyberpunk skyline" loading="lazy">
-      <img src="../img/ibomb/shot-deep.jpg" alt="Deep Currents — an underwater city" loading="lazy">
-      <img src="../img/ibomb/shot-orbital.jpg" alt="Orbital Drift — a space station above the Earth" loading="lazy">
-      <img src="../img/ibomb/shot-mansion.jpg" alt="The Long Night — a moonlit haunted mansion" loading="lazy">
     </div>
   </div>
 </section>
@@ -213,7 +309,7 @@
 <div class="lb" id="lb"><img src="" alt=""></div>
 <script>
   const lb=document.getElementById('lb'),lbImg=lb.querySelector('img');
-  document.querySelectorAll('.shots img').forEach(i=>i.addEventListener('click',()=>{lbImg.src=i.src;lb.classList.add('open')}));
+  document.querySelectorAll('.gallery img').forEach(i=>i.addEventListener('click',()=>{lbImg.src=i.src;lb.classList.add('open')}));
   lb.addEventListener('click',()=>lb.classList.remove('open'));
 </script>
 </body>
