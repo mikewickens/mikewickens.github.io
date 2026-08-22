@@ -76,6 +76,27 @@
   .youtube-frame iframe{width:100%;height:100%;display:block;border:0}
   .caption{text-align:center;color:var(--dim);font-size:.86rem;margin-top:1rem}
 
+  /* ---- original soundtrack ---- */
+  .soundtrack-section{background:linear-gradient(180deg,var(--bg2),var(--bg));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .soundtrack-shell{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:minmax(270px,.8fr) minmax(0,1.2fr);gap:1.2rem;align-items:start}
+  .now-playing,.track-list{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:1rem}
+  .now-art{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:11px;border:1px solid var(--line);background:#08040f}
+  .now-copy{padding:.95rem .2rem .2rem}
+  .now-kicker{color:var(--gold);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+  .now-copy h3{color:#fff5e4;font-size:1.35rem;margin-top:.25rem}
+  .now-copy p{color:var(--dim);font-size:.86rem;margin-top:.2rem}
+  .now-copy audio{width:100%;margin-top:.9rem;accent-color:var(--gold)}
+  .track-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem}
+  .track{display:grid;grid-template-columns:2.2rem minmax(0,1fr) auto;align-items:center;gap:.55rem;width:100%;
+    border:1px solid rgba(255,196,84,.14);border-radius:10px;background:rgba(11,7,22,.5);color:var(--text);
+    padding:.62rem .7rem;text-align:left;cursor:pointer;font:inherit;transition:border-color .15s,background .15s,transform .15s}
+  .track:hover{border-color:var(--line);background:rgba(255,196,84,.08);transform:translateY(-1px)}
+  .track.active{border-color:var(--gold);background:rgba(255,196,84,.13);box-shadow:0 0 0 1px rgba(255,196,84,.12)}
+  .track-no{color:var(--gold);font-size:.72rem;letter-spacing:.1em;font-weight:700}
+  .track-name{display:block;color:#fff5e4;font-size:.86rem;font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .track-world{display:block;color:var(--dim);font-size:.7rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .track-time{color:var(--dim);font-size:.72rem;font-variant-numeric:tabular-nums}
+
   /* ---- screenshots: one gallery, all 24 ---- */
   .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.1rem}
   .tile{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;
@@ -102,6 +123,7 @@
   .lb{position:fixed;inset:0;background:rgba(6,3,12,.93);display:none;align-items:center;justify-content:center;z-index:100;padding:1.5rem;cursor:zoom-out}
   .lb.open{display:flex}
   .lb img{max-width:100%;max-height:100%;border-radius:12px;border:1px solid var(--line)}
+  @media(max-width:760px){.soundtrack-shell{grid-template-columns:1fr}.track-list{grid-template-columns:1fr}}
   @media(max-width:640px){.gallery{grid-template-columns:1fr}header.hero{min-height:86vh}}
 </style>
 </head>
@@ -145,6 +167,47 @@
               allowfullscreen></iframe>
     </div>
     <p class="caption">The complete 12-level Classic tour in 5 minutes 13 seconds.</p>
+  </div>
+</section>
+
+<section id="soundtrack" class="soundtrack-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Original soundtrack</div>
+      <h2>Thirteen tracks. One score for every world.</h2>
+      <p>Composed by Mike Wickens for i-Bomb: a dedicated title theme and twelve
+         original stage tracks, each written to give its world a distinct identity.
+         Select any track to hear the complete piece.</p>
+    </div>
+    <div class="soundtrack-shell">
+      <article class="now-playing" aria-live="polite">
+        <img class="now-art" id="soundtrack-art" src="../img/ibomb/titlescreen-poster.jpg" alt="i-Bomb title screen artwork">
+        <div class="now-copy">
+          <div class="now-kicker" id="soundtrack-index">Track 00 · Title screen</div>
+          <h3 id="soundtrack-title">Title Theme</h3>
+          <p id="soundtrack-meta">Music composed by Mike Wickens · 2:58</p>
+          <audio id="soundtrack-player" controls preload="metadata" src="../audio/ibomb/00_title.mp3">
+            Your browser does not support audio playback.
+          </audio>
+        </div>
+      </article>
+      <div class="track-list" role="list" aria-label="i-Bomb original soundtrack">
+        <button class="track active" type="button" role="listitem" aria-pressed="true" data-src="../audio/ibomb/00_title.mp3" data-art="../img/ibomb/titlescreen-poster.jpg" data-alt="i-Bomb title screen artwork" data-index="Track 00 · Title screen" data-title="Title Theme" data-duration="2:58"><span class="track-no">00</span><span><span class="track-name">Title Theme</span><span class="track-world">Title Screen</span></span><span class="track-time">2:58</span></button>
+        <button class="track" type="button" role="listitem" aria-pressed="false" data-src="../audio/ibomb/01_desert_ruins.mp3" data-art="../img/ibomb/stage-01.jpg" data-alt="Desert Ruins stage artwork" data-index="Track 01 · Desert Ruins" data-title="Desert Ruins" data-duration="3:22"><span class="track-no">01</span><span><span class="track-name">Desert Ruins</span><span class="track-world">First Light</span></span><span class="track-time">3:22</span></button>
+        <button class="track" type="button" role="listitem" aria-pressed="false" data-src="../audio/ibomb/02_forest_spire.mp3" data-art="../img/ibomb/stage-02.jpg" data-alt="Enchanted Forest stage artwork" data-index="Track 02 · Enchanted Forest" data-title="Forest Spire" data-duration="2:29"><span class="track-no">02</span><span><span class="track-name">Forest Spire</span><span class="track-world">The Spire</span></span><span class="track-time">2:29</span></button>
+        <button class="track" type="button" role="listitem" aria-pressed="false" data-src="../audio/ibomb/03_clockwork_shift.mp3" data-art="../img/ibomb/stage-03.jpg" data-alt="Clockwork City stage artwork" data-index="Track 03 · Clockwork City" data-title="Clockwork Shift" data-duration="3:32"><span class="track-no">03</span><span><span class="track-name">Clockwork Shift</span><span class="track-world">Shift Change</span></span><span class="track-time">3:32</span></button>
+        <button class="track" type="button" role="listitem" aria-pressed="false" data-src="../audio/ibomb/04_storm_gaps.mp3" data-art="../img/ibomb/stage-04.jpg" data-alt="Storm Peaks stage artwork" data-index="Track 04 · Storm Peaks" data-title="Storm Gaps" data-duration="3:03"><span class="track-no">04</span><span><span class="track-name">Storm Gaps</span><span class="track-world">The Long Gaps</span></span><span class="track-time">3:03</span></button>
+        <button class="track" type="button" role="listitem" aria-pressed="false" data-src="../audio/ibomb/05_temple_collapse.mp3" data-art="../img/ibomb/stage-05.jpg" data-alt="Sky Temple stage artwork" data-index="Track 05 · Sky Temple" data-title="Temple Collapse" data-duration="2:54"><span class="track-no">05</span><span><span class="track-name">Temple Collapse</span><span class="track-world">Nothing Holds</span></span><span class="track-time">2:54</span></button>
+        <button class="track" type="button" role="listitem" aria-pressed="false" data-src="../audio/ibomb/06_tokyo_gates.mp3" data-art="../img/ibomb/stage-06.jpg" data-alt="Tokyo Nights stage artwork" data-index="Track 06 · Tokyo Nights" data-title="Tokyo Gates" data-duration="3:10"><span class="track-no">06</span><span><span class="track-name">Tokyo Gates</span><span class="track-world">Neon Gates</span></span><span class="track-time">3:10</span></button>
+        <button class="track" type="button" role="listitem" aria-pressed="false" data-src="../audio/ibomb/07_london_skies.mp3" data-art="../img/ibomb/stage-07.jpg" data-alt="London Skyline stage artwork" data-index="Track 07 · London Skyline" data-title="London Skies" data-duration="3:02"><span class="track-no">07</span><span><span class="track-name">London Skies</span><span class="track-world">Rooftop Hours</span></span><span class="track-time">3:02</span></button>
+        <button class="track" type="button" role="listitem" aria-pressed="false" data-src="../audio/ibomb/08_volcano_run.mp3" data-art="../img/ibomb/stage-08.jpg" data-alt="Volcanic Island stage artwork" data-index="Track 08 · Volcanic Island" data-title="Volcano Run" data-duration="2:58"><span class="track-no">08</span><span><span class="track-name">Volcano Run</span><span class="track-world">Ash and Iron</span></span><span class="track-time">2:58</span></button>
+        <button class="track" type="button" role="listitem" aria-pressed="false" data-src="../audio/ibomb/09_deep_currents.mp3" data-art="../img/ibomb/stage-09.jpg" data-alt="Underwater City stage artwork" data-index="Track 09 · Underwater City" data-title="Deep Currents" data-duration="3:09"><span class="track-no">09</span><span><span class="track-name">Deep Currents</span><span class="track-world">Deep Currents</span></span><span class="track-time">3:09</span></button>
+        <button class="track" type="button" role="listitem" aria-pressed="false" data-src="../audio/ibomb/10_carnival_circuit.mp3" data-art="../img/ibomb/stage-10.jpg" data-alt="Night Carnival stage artwork" data-index="Track 10 · Night Carnival" data-title="Carnival Circuit" data-duration="3:00"><span class="track-no">10</span><span><span class="track-name">Carnival Circuit</span><span class="track-world">The Circuit</span></span><span class="track-time">3:00</span></button>
+        <button class="track" type="button" role="listitem" aria-pressed="false" data-src="../audio/ibomb/11_orbital_drift.mp3" data-art="../img/ibomb/stage-11.jpg" data-alt="Orbital Station stage artwork" data-index="Track 11 · Orbital Station" data-title="Orbital Drift" data-duration="3:25"><span class="track-no">11</span><span><span class="track-name">Orbital Drift</span><span class="track-world">Drift</span></span><span class="track-time">3:25</span></button>
+        <button class="track" type="button" role="listitem" aria-pressed="false" data-src="../audio/ibomb/12_mansion_finale.mp3" data-art="../img/ibomb/stage-12.jpg" data-alt="Haunted Mansion stage artwork" data-index="Track 12 · Haunted Mansion" data-title="Mansion Finale" data-duration="3:32"><span class="track-no">12</span><span><span class="track-name">Mansion Finale</span><span class="track-world">The Long Night</span></span><span class="track-time">3:32</span></button>
+      </div>
+    </div>
+    <p class="caption">All music written and produced by Mike Wickens for i-Bomb.</p>
   </div>
 </section>
 
@@ -290,6 +353,8 @@
         <p>Shield, Magnet, Time, Double score, Overcharge and a one-up — earned by playing well, not by waiting.</p></div>
       <div class="feat"><div class="ico">🎮</div><h3>Play it your way</h3>
         <p>Keyboard, Xbox pad, PlayStation pad or touch controls, with safe-area layout on handhelds.</p></div>
+      <div class="feat"><div class="ico">🎵</div><h3>Thirteen original tracks</h3>
+        <p>A title theme plus one original score for every world, composed and produced by Mike Wickens.</p></div>
     </div>
   </div>
 </section>
@@ -335,6 +400,29 @@
   const lb=document.getElementById('lb'),lbImg=lb.querySelector('img');
   document.querySelectorAll('.gallery img').forEach(i=>i.addEventListener('click',()=>{lbImg.src=i.src;lb.classList.add('open')}));
   lb.addEventListener('click',()=>lb.classList.remove('open'));
+
+  const soundtrackPlayer=document.getElementById('soundtrack-player');
+  const soundtrackArt=document.getElementById('soundtrack-art');
+  const soundtrackIndex=document.getElementById('soundtrack-index');
+  const soundtrackTitle=document.getElementById('soundtrack-title');
+  const soundtrackMeta=document.getElementById('soundtrack-meta');
+  const soundtrackTracks=[...document.querySelectorAll('.track')];
+  function selectSoundtrack(track,autoplay=true){
+    soundtrackTracks.forEach(button=>{button.classList.toggle('active',button===track);button.setAttribute('aria-pressed',button===track?'true':'false')});
+    soundtrackArt.src=track.dataset.art;
+    soundtrackArt.alt=track.dataset.alt;
+    soundtrackIndex.textContent=track.dataset.index;
+    soundtrackTitle.textContent=track.dataset.title;
+    soundtrackMeta.textContent='Music composed by Mike Wickens · '+track.dataset.duration;
+    soundtrackPlayer.src=track.dataset.src;
+    soundtrackPlayer.load();
+    if(autoplay)soundtrackPlayer.play().catch(()=>{});
+  }
+  soundtrackTracks.forEach(track=>track.addEventListener('click',()=>selectSoundtrack(track)));
+  soundtrackPlayer.addEventListener('ended',()=>{
+    const current=soundtrackTracks.findIndex(track=>track.classList.contains('active'));
+    selectSoundtrack(soundtrackTracks[(current+1)%soundtrackTracks.length]);
+  });
 </script>
 </body>
 </html>
