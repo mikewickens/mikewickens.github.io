@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>i-Bomb — MW Design</title>
-<meta name="description" content="i-Bomb — an arcade platformer in the Bomb Jack tradition. Clear every bomb, chain the lit ones, and fly. Twenty-four hand-built stages across two tours. Coming to itch.io.">
+<meta name="description" content="i-Bomb — an arcade platformer in the Bomb Jack tradition. Clear every bomb, chain the lit ones, and fly through twenty-four hand-built stages across two tours. Available now on itch.io.">
 <meta property="og:title" content="i-Bomb">
 <meta property="og:description" content="The last one is red. An arcade platformer in the Bomb Jack tradition — clear every bomb, chain the lit ones, and fly.">
 <meta property="og:image" content="https://mikewickens.github.io/img/ibomb/hero.jpg">
@@ -71,6 +71,9 @@
   .video-frame{max-width:900px;margin:0 auto;border-radius:16px;overflow:hidden;border:1px solid var(--line);
     box-shadow:0 20px 60px rgba(0,0,0,.6);background:#000}
   .video-frame video{width:100%;display:block}
+  .youtube-frame{max-width:900px;margin:0 auto;aspect-ratio:16/9;border-radius:16px;overflow:hidden;
+    border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.6);background:#000}
+  .youtube-frame iframe{width:100%;height:100%;display:block;border:0}
   .caption{text-align:center;color:var(--dim);font-size:.86rem;margin-top:1rem}
 
   /* ---- screenshots: one gallery, all 24 ---- */
@@ -107,7 +110,7 @@
 <nav>
   <div class="wrap">
     <a class="brand" href="../"><img src="../img/icon.png" alt="MW Design"> MW Design</a>
-    <a class="nav-cta" href="#release">Coming to itch.io</a>
+    <a class="nav-cta" href="https://mikewickens.itch.io/i-bomb">Play on itch.io</a>
   </div>
 </nav>
 
@@ -117,12 +120,33 @@
     <div class="hero-sub">The last one is red</div>
     <p class="hero-tag">An arcade platformer in the Bomb Jack tradition. Every bomb on the screen has to go — but one of them is lit, and taking them in order is where the score lives.</p>
     <div class="cta-row">
-      <a class="btn btn-itch" href="#release">Coming to itch.io</a>
-      <a class="btn btn-ghost" href="#motion">▶ See it move</a>
+      <a class="btn btn-itch" href="https://mikewickens.itch.io/i-bomb">Download on itch.io</a>
+      <a class="btn btn-ghost" href="#full-run">▶ Watch the full run</a>
     </div>
     <div class="meta-line"><b>24 stages</b> · Two tours · Keyboard, gamepad &amp; touch · Built in <b>Godot 4</b></div>
   </div>
 </header>
+
+<section id="full-run">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Full playthrough</div>
+      <h2>All 12 Classic stages</h2>
+      <p>Watch Classic Mode from First Light to The Long Night in one complete
+         player-controlled run, captured at 1440p and 60 FPS with the game&rsquo;s
+         original music and sound effects.</p>
+    </div>
+    <div class="youtube-frame">
+      <iframe src="https://www.youtube.com/embed/TU7fQwKRE4g?rel=0"
+              title="i-Bomb — Full Classic Mode Playthrough — All 12 Levels"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+    </div>
+    <p class="caption">The complete 12-level Classic tour in 5 minutes 13 seconds.</p>
+  </div>
+</section>
 
 <section id="stages">
   <div class="wrap">
@@ -283,13 +307,13 @@
 
 <section class="final" id="release">
   <div class="wrap">
-    <h2>Not out yet</h2>
+    <h2>Play i-Bomb now</h2>
     <p style="color:var(--dim);max-width:520px;margin:1rem auto 0">
-      i-Bomb is in development and heading for itch.io. The soundtrack — all twelve stage themes,
-      written for the game — will be released alongside it.
+      Download the complete Windows release from itch.io. Play all 24 stages across
+      Classic and Arcade tours, with the full twelve-theme soundtrack included.
     </p>
     <div class="cta-row">
-      <a class="btn btn-itch" href="https://mikewickens.itch.io/">Follow on itch.io</a>
+      <a class="btn btn-itch" href="https://mikewickens.itch.io/i-bomb">Download on itch.io</a>
     </div>
   </div>
 </section>
