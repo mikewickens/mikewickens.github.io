@@ -46,6 +46,7 @@
 .theme-chroma-vector {--accent:#ff4fd8;--accent-2:#4fe3ff}
 .theme-ibomb         {--accent:#ffc454;--accent-2:#ff5a4d}
 .theme-modern-dom    {--accent:#d9ad57;--accent-2:#4fc3e8}
+.theme-cat-escape    {--accent:#ff9f2e;--accent-2:#3b82f6}
 
 /* ---- reset ---- */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
