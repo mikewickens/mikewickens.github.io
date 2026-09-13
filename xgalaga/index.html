@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XGalaga — MW Design</title>
+<meta name="description" content="XGalaga — a faithful Swift and SpriteKit port of the 1998 X11 arcade classic by Joe Rumsey. 17 alien types, 15 hand-crafted levels, the original sounds and three-letter high scores on iPhone, iPad, Mac, Apple TV and Apple Watch. No ads, no in-app purchases.">
+<meta property="og:title" content="XGalaga">
+<meta property="og:description" content="The 1998 X11 arcade classic, faithfully ported to iPhone, iPad, Mac, Apple TV and Apple Watch. Original sounds and the original 16-direction movement.">
+<meta property="og:image" content="https://mikewickens.github.io/img/xgalaga-classic/iphone-07.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#06080d">
+<link rel="icon" href="../img/brand/favicon-64.png">
+<link rel="apple-touch-icon" href="../img/brand/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+</head>
+<body class="theme-xgalaga">
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../img/brand/mw-mark-256.png" alt=""><span><b>MW</b> Design</span></a>
+    <nav class="nav-links" aria-label="Main">
+      <details class="menu">
+        <summary>Apps</summary>
+        <div class="menu-panel">
+          <a href="../xgalaga-hd/"><img src="../img/icons/xgalaga-hd.jpg" alt=""><span>XGalaga HD<small>Apple platforms</small></span></a>
+          <a href="../touch-relief/"><img src="../img/icons/touch-relief.jpg" alt=""><span>TouchRelief<small>iPhone, iPad &amp; Watch</small></span></a>
+          <a href="../i-bomb/"><img src="../img/icons/i-bomb.jpg" alt=""><span>i-Bomb<small>Apple &amp; Windows</small></span></a>
+          <a href="../xgalaga-vr/"><img src="../img/icons/xgalaga-vr.jpg" alt=""><span>XGalaga VR<small>Meta Quest</small></span></a>
+          <a href="../chroma-vector/"><img src="../img/icons/chroma-vector.jpg" alt=""><span>Chroma Vector<small>Apple platforms</small></span></a>
+          <a href="../xgalaga/"><img src="../img/icons/xgalaga.jpg" alt=""><span>XGalaga<small>Apple platforms</small></span></a>
+          <a href="../modern-domination/"><img src="../img/icons/modern-domination.jpg" alt=""><span>Modern Domination<small>Android</small></span></a>
+        </div>
+      </details>
+      <a href="../#studio">Studio</a>
+      <a href="mailto:mwdesignhelp@gmail.com">Contact</a>
+    </nav>
+    <div class="nav-cta"><a class="btn btn-sm btn-primary" href="https://apps.apple.com/app/id6759682684">Get it</a></div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ Hero ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="hero-id">
+        <img class="app-icon" src="../img/icons/xgalaga.jpg" alt="XGalaga app icon">
+        <div class="meta">
+          <span class="pill pill-live">On the App Store</span>
+          <small>Game · iPhone, iPad, Mac, Apple&nbsp;TV &amp; Apple&nbsp;Watch</small>
+        </div>
+      </div>
+      <h1>XGalaga<span class="sub">The 1998 arcade classic, on every Apple screen.</span></h1>
+      <p class="lede">A faithful Swift and SpriteKit port of Joe Rumsey&rsquo;s X11 shooter. The original alien paths, the original sounds and the original 16-direction movement, driven by one shared engine on iPhone, iPad, Mac, Apple&nbsp;TV and Apple&nbsp;Watch.</p>
+      <div class="cta-row">
+        <a class="btn btn-apple" href="https://apps.apple.com/app/id6759682684">Download on the App Store</a>
+        <a class="btn btn-ghost" href="#tour">See the screens</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><b>17</b> alien types</span>
+        <span class="chip"><b>15</b> hand-crafted levels</span>
+        <span class="chip">Apple Watch app included</span>
+        <span class="chip">No ads · No IAP · No tracking</span>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="frame-phone"><img src="../img/xgalaga-classic/iphone-07.jpg" alt="XGalaga on iPhone: a full alien convoy in formation above the player's ship"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Numbers ============ -->
+<section class="section" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="stats reveal">
+      <div class="stat"><b>17</b><span>alien types, 16 sprite frames each</span></div>
+      <div class="stat"><b>15</b><span>levels, then a harder loop</span></div>
+      <div class="stat"><b>16</b><span>compass directions, as in the C source</span></div>
+      <div class="stat"><b>60</b><span>fps, retimed from the original 30</span></div>
+      <div class="stat"><b>5</b><span>Apple platforms, one engine</span></div>
+      <div class="stat"><b>0</b><span>ads, in-app purchases or trackers</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Screenshot tour ============ -->
+<section class="section" id="tour">
+  <div class="wrap">
+    <div class="rail-hint">
+      <div class="sec-head" style="margin-bottom:0">
+        <span class="eyebrow">The tour</span>
+        <h2>Just as you remember it</h2>
+        <p>Eight screens from the iPhone version. Swipe or use the arrows, and tap any screen to enlarge it.</p>
+      </div>
+      <div class="rail-nav" data-rail="xg-rail">
+        <button type="button" data-dir="-1" aria-label="Previous screenshots"><svg viewBox="0 0 16 16"><path d="M10 3 5 8l5 5"/></svg></button>
+        <button type="button" data-dir="1" aria-label="Next screenshots"><svg viewBox="0 0 16 16"><path d="m6 3 5 5-5 5"/></svg></button>
+      </div>
+    </div>
+    <div class="rail" id="xg-rail">
+      <figure><img src="../img/xgalaga-classic/iphone-07.jpg" alt="Alien convoy in formation" loading="lazy"><figcaption>The convoy<small>Rows of aliens waiting to dive</small></figcaption></figure>
+      <figure><img src="../img/xgalaga-classic/iphone-03.jpg" alt="Aliens entering in a column along a scripted path" loading="lazy"><figcaption>The entrance<small>Aliens arrive along scripted paths</small></figcaption></figure>
+      <figure><img src="../img/xgalaga-classic/iphone-05.jpg" alt="A line of aliens peeling off the convoy" loading="lazy"><figcaption>The dive<small>Peel off, attack, return</small></figcaption></figure>
+      <figure><img src="../img/xgalaga-classic/iphone-04.jpg" alt="A mixed formation of alien types with a bonus pickup falling" loading="lazy"><figcaption>Mixed formations<small>Tougher tiers are worth more</small></figcaption></figure>
+      <figure><img src="../img/xgalaga-classic/iphone-06.jpg" alt="Yellow and red aliens swooping towards the ship, which fires three shots" loading="lazy"><figcaption>New attackers<small>Seventeen alien types to learn</small></figcaption></figure>
+      <figure><img src="../img/xgalaga-classic/iphone-02.jpg" alt="Bonuses screen listing torpedo, spread fire, speed, shield, smart bomb and more" loading="lazy"><figcaption>Bonuses<small>Catch the capsules as they fall</small></figcaption></figure>
+      <figure><img src="../img/xgalaga-classic/iphone-08.jpg" alt="New high score screen with three-letter name entry" loading="lazy"><figcaption>High scores<small>Three letters, arcade style</small></figcaption></figure>
+      <figure><img src="../img/xgalaga-classic/iphone-01.jpg" alt="Options screen: sound, auto fire, lives, control and bonuses" loading="lazy"><figcaption>Options<small>Sound, auto-fire, lives, controls</small></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Story rows ============ -->
+<section class="section section-alt" id="features">
+  <div class="wrap">
+
+    <div class="split reveal">
+      <div>
+        <span class="eyebrow">Faithful to the source</span>
+        <h3>Movement taken straight from the C code</h3>
+        <p>XGalaga&rsquo;s aliens never moved like anything else, and that feel is the point. The port reuses the original 16-direction compass system, so every entrance, loop and dive traces the same path it did on an X11 desktop in 1998.</p>
+        <ul class="ticks">
+          <li><b>17 alien types</b>, each with 16 directional sprite frames</li>
+          <li>Aliens enter along scripted paths, form a convoy, dive-bomb and return to their place</li>
+          <li>Original timing converted from 30 to 60 frames per second, so it plays at the same pace, only smoother</li>
+          <li>The <b>8 original sound samples</b></li>
+        </ul>
+      </div>
+      <div class="media">
+        <div class="frame-phone" style="width:min(230px,42vw)"><img src="../img/xgalaga-classic/iphone-03.jpg" alt="Aliens entering along a scripted path" loading="lazy"></div>
+        <div class="frame-phone" style="width:min(230px,42vw);margin-bottom:2.5rem"><img src="../img/xgalaga-classic/iphone-05.jpg" alt="Aliens diving from the convoy" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="split flip reveal">
+      <div>
+        <span class="eyebrow">Power-ups</span>
+        <h3>Catch the capsule, change the fight</h3>
+        <p>Bonus capsules tumble down the screen during play. Fly into one to power up your ship, which can turn a hopeless wave into a clean sweep.</p>
+        <ul class="ticks">
+          <li>Power-ups including double, triple and spread fire, an extra bullet and machine fire</li>
+          <li>A shield, a speed boost, an extra life and a smart bomb</li>
+          <li>Bonus points, or switch bonuses off entirely for the purist&rsquo;s game</li>
+        </ul>
+      </div>
+      <div class="media">
+        <div class="frame-phone" style="width:min(250px,60vw)"><img src="../img/xgalaga-classic/iphone-02.jpg" alt="The bonuses screen" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="split reveal">
+      <div>
+        <span class="eyebrow">Scoring</span>
+        <h3>One more go for the table</h3>
+        <p>Aliens score 500, 1,000, 2,000 or 4,000 points depending on their tier. Fifteen hand-crafted levels lead into a loop that keeps getting harder, and a strong run earns you a place on the high score table with an arcade-style three-letter name.</p>
+        <ul class="ticks">
+          <li>Quick sessions that suit a spare minute</li>
+          <li>Sound, auto-fire, lives (3 to 5), control mode and bonuses, all remembered between games</li>
+          <li>No account and no login: open it and play</li>
+        </ul>
+      </div>
+      <div class="media">
+        <div class="frame-phone" style="width:min(230px,42vw);margin-bottom:2.5rem"><img src="../img/xgalaga-classic/iphone-08.jpg" alt="New high score name entry" loading="lazy"></div>
+        <div class="frame-phone" style="width:min(230px,42vw)"><img src="../img/xgalaga-classic/iphone-01.jpg" alt="Options screen" loading="lazy"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ iPad ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">iPad</span>
+      <h2>A taller sky to defend</h2>
+      <p>On iPad the playfield opens up in portrait, with more room to read the convoy and dodge the dives.</p>
+    </div>
+    <div class="gallery" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">
+      <figure class="shot"><img src="../img/xgalaga-classic/ipad-04.jpg" alt="A column of aliens entering on iPad" style="aspect-ratio:3/4" loading="lazy"><figcaption><span class="tag">Entrance</span> Single file</figcaption></figure>
+      <figure class="shot"><img src="../img/xgalaga-classic/ipad-05.jpg" alt="An alien exploding with a 500-point score on iPad" style="aspect-ratio:3/4" loading="lazy"><figcaption><span class="tag">Convoy</span> 500 points</figcaption></figure>
+      <figure class="shot"><img src="../img/xgalaga-classic/ipad-02.jpg" alt="Bonuses screen on iPad" style="aspect-ratio:3/4" loading="lazy"><figcaption><span class="tag">Bonuses</span> Know your capsules</figcaption></figure>
+      <figure class="shot"><img src="../img/xgalaga-classic/ipad-08.jpg" alt="Game over with aliens snaking across the screen on iPad" style="aspect-ratio:3/4" loading="lazy"><figcaption><span class="tag alt">Game over</span> Try again</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Platforms & controls ============ -->
+<section class="section section-alt" id="platforms">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Platforms &amp; controls</span>
+      <h2>One engine, five screens</h2>
+      <p>The same game runs everywhere, with controls suited to each device. One purchase covers iPhone and iPad, and the Apple&nbsp;Watch app is included.</p>
+    </div>
+    <div class="features">
+      <div class="feature reveal"><span class="k">iOS</span><h3>iPhone &amp; iPad</h3><p>Touch and drag to move. Arrow keys and space also work with a keyboard. Turn on auto-fire for one-handed play.</p></div>
+      <div class="feature reveal"><span class="k">W</span><h3>Apple Watch</h3><p>Drag or turn the Digital Crown to steer, tap to fire, and double-tap for auto-fire. A full game on your wrist.</p></div>
+      <div class="feature reveal"><span class="k">TV</span><h3>Apple TV</h3><p>Play from the sofa with the Siri Remote or a game controller.</p></div>
+      <div class="feature reveal"><span class="k">Mac</span><h3>Mac</h3><p>The same shared engine and the same game, on your desktop.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Origins ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head center">
+      <img src="../img/xgalaga-classic/logo.png" alt="XGalaga pixel logo" style="image-rendering:pixelated;width:min(360px,70vw);margin:0 auto 1.8rem">
+      <span class="eyebrow">Origins</span>
+      <h2>From an X11 desktop to your wrist</h2>
+      <p>Joe Rumsey&rsquo;s XGalaga was written for X11 in the 1990s. This port rebuilds it in Swift and SpriteKit while keeping the parts that made it play the way it did, and is released under the same GNU GPL v2 licence as the original.</p>
+    </div>
+    <div class="steps" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">
+      <div class="step"><h3>Read the source</h3><p>Alien paths, convoy behaviour and the 16-direction compass come from the original C code rather than being re-imagined.</p></div>
+      <div class="step"><h3>Keep the sound</h3><p>The eight original sound samples are carried across, so every shot and explosion sounds right.</p></div>
+      <div class="step"><h3>Retime for 60 fps</h3><p>Timings written for 30 frames per second are converted so the game keeps its pace at twice the frame rate.</p></div>
+      <div class="step"><h3>Share one engine</h3><p>A single engine drives every platform, with input tuned for touch, the Digital Crown, the Siri Remote and controllers.</p></div>
+    </div>
+
+    <div class="split" style="margin-top:clamp(4rem,8vw,6rem)">
+      <div>
+        <span class="eyebrow">Want the remake?</span>
+        <h3>XGalaga HD</h3>
+        <p>XGalaga HD is the later ground-up remake, where every sprite is rendered on device. If you want the original as it was, stay here. If you want to see where it went next, take a look.</p>
+        <div class="cta-row"><a class="btn btn-ghost" href="../xgalaga-hd/">Explore XGalaga HD</a></div>
+      </div>
+      <div class="media">
+        <a href="../xgalaga-hd/" aria-label="XGalaga HD"><img class="app-icon" src="../img/icons/xgalaga-hd.jpg" alt="XGalaga HD app icon" style="width:140px;height:140px;border-radius:32px"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ At a glance ============ -->
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">At a glance</span>
+      <h2>The details</h2>
+    </div>
+    <dl class="spec">
+      <div><dt>Devices</dt><dd>iPhone, iPad, Mac, Apple TV and Apple Watch</dd></div>
+      <div><dt>Price</dt><dd>$1.99, universal purchase on iOS</dd></div>
+      <div><dt>Age rating</dt><dd>4+</dd></div>
+      <div><dt>Version</dt><dd>1.1</dd></div>
+      <div><dt>Released</dt><dd>3 March 2026</dd></div>
+      <div><dt>Business model</dt><dd>No ads, no in-app purchases</dd></div>
+      <div><dt>Privacy</dt><dd>No tracking, no account, no data collected</dd></div>
+      <div><dt>Licence</dt><dd>GNU GPL v2, like the original</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ Download ============ -->
+<section class="section" id="download">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <img class="app-icon" src="../img/icons/xgalaga.jpg" alt="">
+      <span class="pill pill-live">On the App Store</span>
+      <h2 style="margin-top:1rem">Insert coin. Well, $1.99.</h2>
+      <p>iPhone, iPad, Mac, Apple TV and Apple Watch. No ads, no in-app purchases, no tracking, no account.</p>
+      <div class="cta-row">
+        <a class="btn btn-apple" href="https://apps.apple.com/app/id6759682684">Download on the App Store</a>
+        <a class="btn btn-ghost" href="mailto:mwdesignhelp@gmail.com?subject=XGalaga">Get in touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../"><img src="../img/brand/mw-logo-dark.png" alt="MW Design"></a>
+        <p>An independent studio making games and apps for Apple platforms, Android, Wear&nbsp;OS and Meta Quest since 2016.</p>
+      </div>
+      <div>
+        <h4>Apple</h4>
+        <ul>
+          <li><a href="../xgalaga-hd/">XGalaga HD</a></li>
+          <li><a href="../touch-relief/">TouchRelief</a></li>
+          <li><a href="../i-bomb/">i-Bomb</a></li>
+          <li><a href="../chroma-vector/">Chroma Vector</a></li>
+          <li><a href="../xgalaga/">XGalaga</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>More platforms</h4>
+        <ul>
+          <li><a href="../xgalaga-vr/">XGalaga VR · Quest</a></li>
+          <li><a href="../modern-domination/">Modern Domination · Android</a></li>
+          <li><a href="../i-bomb/">i-Bomb · Windows</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="../#studio">About</a></li>
+          <li><a href="mailto:mwdesignhelp@gmail.com">Contact</a></li>
+          <li><a href="https://sites.google.com/view/mwdesignprivacy">Privacy policy</a></li>
+          <li><a href="https://apps.apple.com/us/developer/michael-wickens/id1880185005">App Store</a></li>
+          <li><a href="https://play.google.com/store/apps/dev?id=6344319024398727942">Google Play</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 MW Design. All rights reserved.</span>
+      <span class="legal">XGalaga for Apple platforms is a port of <a href="http://www.nongnu.org/xgalaga/">XGalaga</a> by Joe Rumsey (1995–1998), with original work by Bill Dyess, Rob Forsman, Sujal Patel, Paul Kendall and Mike McGrath, and is released under the <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GNU GPL v2</a>. Swift/SpriteKit port &copy; 2026 MW Design.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/site.js" defer></script>
+</body>
+</html>

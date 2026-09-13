@@ -9,177 +9,200 @@
 <meta property="og:description" content="The last one is red. An arcade platformer in the Bomb Jack tradition — clear every bomb, chain the lit ones, and fly.">
 <meta property="og:image" content="https://mikewickens.github.io/img/ibomb/hero.jpg">
 <meta property="og:type" content="website">
-<link rel="icon" href="../img/icon.png">
+<meta name="theme-color" content="#06080d">
+<link rel="icon" href="../img/brand/favicon-64.png">
+<link rel="apple-touch-icon" href="../img/brand/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
 <style>
-  :root{
-    --bg:#0b0716; --bg2:#140c26; --panel:rgba(42,24,68,.5);
-    --gold:#ffc454; --gold-bright:#ffd98a; --ember:#ff5a4d; --amber:#ffb020;
-    --text:#e8dff5; --dim:#a294bd; --line:rgba(255,196,84,.26);
-    --itch:#fa5c5c;
-    color-scheme:dark;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-    background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
-  a{color:var(--gold)}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 1.25rem}
-  .eyebrow{letter-spacing:.32em;text-transform:uppercase;font-size:.72rem;color:var(--gold);font-weight:600}
-
-  /* ---- top nav ---- */
-  nav{position:sticky;top:0;z-index:50;background:rgba(11,7,22,.84);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-  .brand{display:flex;align-items:center;gap:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.9rem;color:#fff;text-decoration:none}
-  .brand img{width:30px;height:30px;border-radius:7px}
-  .nav-cta{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,196,84,.14);color:var(--gold-bright);
-    text-decoration:none;font-weight:600;font-size:.82rem;padding:.5rem .95rem;border-radius:8px;border:1px solid var(--line)}
-
-  /* ---- hero ---- */
-  header.hero{position:relative;min-height:78vh;display:flex;align-items:center;
-    background:
-      radial-gradient(ellipse 80% 62% at 50% 46%, rgba(11,7,22,.62) 0%, rgba(11,7,22,.28) 74%, rgba(11,7,22,0) 100%),
-      linear-gradient(180deg,rgba(11,7,22,.46) 0%,rgba(11,7,22,.55) 42%,rgba(11,7,22,.86) 74%,var(--bg) 100%),
-      url('../img/ibomb/hero.jpg');
-    background-size:cover;background-position:center bottom;text-align:center}
-  .hero-inner{width:100%;padding:4rem 1.25rem 5rem}
-  .hero-logo{width:min(660px,88vw);height:auto;filter:drop-shadow(0 10px 34px rgba(0,0,0,.65))}
-  .hero-sub{margin-top:.8rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold-bright);
-    font-size:clamp(.72rem,2.2vw,1rem);font-weight:600}
-  .hero-tag{margin:1.5rem auto 0;max-width:600px;color:#d6c9ea;font-size:1.05rem}
-  .cta-row{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
-  .btn{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:700;border-radius:11px;
-    padding:.9rem 1.5rem;font-size:1rem;transition:transform .15s,box-shadow .15s}
-  .btn:hover{transform:translateY(-2px)}
-  .btn-itch{background:var(--itch);color:#fff;box-shadow:0 8px 26px rgba(250,92,92,.34)}
-  .btn-ghost{background:rgba(255,196,84,.08);color:var(--gold-bright);border:1px solid var(--line)}
-  .btn-apple{background:#f5f5f7;color:#111;box-shadow:0 8px 26px rgba(255,255,255,.16)}
-  .meta-line{margin-top:1.5rem;color:var(--dim);font-size:.82rem;letter-spacing:.08em}
-  .meta-line b{color:var(--gold-bright)}
-
-  section{padding:5rem 0;position:relative}
-  .sec-head{text-align:center;margin-bottom:3rem}
-  .sec-head h2{font-size:clamp(1.7rem,4vw,2.5rem);letter-spacing:.03em;margin-top:.5rem;color:#fff5e4}
-  .sec-head p{color:var(--dim);margin-top:.6rem;max-width:600px;margin-inline:auto}
-
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
-  .feat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.6rem;position:relative;overflow:hidden}
-  .feat::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:linear-gradient(var(--gold),transparent)}
-  .feat .ico{font-size:1.6rem;margin-bottom:.7rem}
-  .feat h3{font-size:1.05rem;color:#fff5e4;letter-spacing:.02em}
-  .feat p{color:var(--dim);font-size:.93rem;margin-top:.4rem}
-
-  /* ---- in motion ---- */
-  .video-frame{max-width:900px;margin:0 auto;border-radius:16px;overflow:hidden;border:1px solid var(--line);
-    box-shadow:0 20px 60px rgba(0,0,0,.6);background:#000}
-  .video-frame video{width:100%;display:block}
-  .youtube-frame{max-width:900px;margin:0 auto;aspect-ratio:16/9;border-radius:16px;overflow:hidden;
-    border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.6);background:#000}
-  .youtube-frame iframe{width:100%;height:100%;display:block;border:0}
-  .caption{text-align:center;color:var(--dim);font-size:.86rem;margin-top:1rem}
-
-  /* ---- original soundtrack ---- */
-  .soundtrack-section{background:linear-gradient(180deg,var(--bg2),var(--bg));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .soundtrack-shell{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:minmax(270px,.8fr) minmax(0,1.2fr);gap:1.2rem;align-items:start}
-  .now-playing,.track-list{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:1rem}
-  .now-art{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:11px;border:1px solid var(--line);background:#08040f}
-  .now-copy{padding:.95rem .2rem .2rem}
-  .now-kicker{color:var(--gold);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
-  .now-copy h3{color:#fff5e4;font-size:1.35rem;margin-top:.25rem}
-  .now-copy p{color:var(--dim);font-size:.86rem;margin-top:.2rem}
-  .now-copy audio{width:100%;margin-top:.9rem;accent-color:var(--gold)}
-  .track-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem}
-  .track{display:grid;grid-template-columns:2.2rem minmax(0,1fr) auto;align-items:center;gap:.55rem;width:100%;
-    border:1px solid rgba(255,196,84,.14);border-radius:10px;background:rgba(11,7,22,.5);color:var(--text);
-    padding:.62rem .7rem;text-align:left;cursor:pointer;font:inherit;transition:border-color .15s,background .15s,transform .15s}
-  .track:hover{border-color:var(--line);background:rgba(255,196,84,.08);transform:translateY(-1px)}
-  .track.active{border-color:var(--gold);background:rgba(255,196,84,.13);box-shadow:0 0 0 1px rgba(255,196,84,.12)}
-  .track-no{color:var(--gold);font-size:.72rem;letter-spacing:.1em;font-weight:700}
-  .track-name{display:block;color:#fff5e4;font-size:.86rem;font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .track-world{display:block;color:var(--dim);font-size:.7rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .track-time{color:var(--dim);font-size:.72rem;font-variant-numeric:tabular-nums}
-
-  /* ---- screenshots: one gallery, all 24 ---- */
-  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.1rem}
-  .tile{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;
-    display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
-  .tile:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.45)}
-  .tile img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;cursor:zoom-in}
-  .tile figcaption{padding:.6rem .8rem .75rem;font-size:.86rem;color:#fff5e4;
-    display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap}
-  .tile figcaption em{color:var(--dim);font-style:normal;font-size:.8rem;margin-left:auto}
-  .tag{font-size:.66rem;letter-spacing:.14em;font-weight:700;padding:.16rem .42rem;
-    border-radius:5px;text-transform:uppercase}
-  .tag.classic{background:rgba(255,196,84,.16);color:var(--gold-bright);border:1px solid var(--line)}
-  .tag.arcade{background:rgba(255,90,77,.16);color:#ff9a90;border:1px solid rgba(255,90,77,.3)}
-
-  .studio{background:linear-gradient(180deg,var(--bg),var(--bg2));border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
-  .studio p{color:var(--dim);max-width:540px;margin:.6rem auto 0}
-
-  .final{text-align:center}
-  .final h2{font-size:clamp(1.8rem,5vw,3rem);color:#fff5e4}
-
-  footer{border-top:1px solid var(--line);padding:2.4rem 0;text-align:center;color:var(--dim);font-size:.85rem}
-  footer a{color:#d6c9ea;text-decoration:none;margin:0 .5rem}
-
-  .lb{position:fixed;inset:0;background:rgba(6,3,12,.93);display:none;align-items:center;justify-content:center;z-index:100;padding:1.5rem;cursor:zoom-out}
-  .lb.open{display:flex}
-  .lb img{max-width:100%;max-height:100%;border-radius:12px;border:1px solid var(--line)}
-  @media(max-width:760px){.soundtrack-shell{grid-template-columns:1fr}.track-list{grid-template-columns:1fr}}
-  @media(max-width:640px){.gallery{grid-template-columns:1fr}header.hero{min-height:86vh}}
+  /* Soundtrack player (page-specific; built on site.css tokens) */
+  .soundtrack-shell{display:grid;grid-template-columns:minmax(280px,.8fr) minmax(0,1.2fr);gap:1rem;align-items:start}
+  .now-playing,.track-list{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1rem}
+  .now-art{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius-s);border:1px solid var(--border);background:#000}
+  .now-copy{padding:1rem .2rem .2rem}
+  .now-kicker{color:var(--accent);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+  .now-copy h3{font-size:1.35rem;margin-top:.35rem}
+  .now-copy p{font-size:.88rem;margin-top:.2rem}
+  .now-copy audio{width:100%;margin-top:1rem;accent-color:var(--accent)}
+  .track-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem}
+  .track{display:grid;grid-template-columns:2rem minmax(0,1fr) auto;align-items:center;gap:.6rem;width:100%;padding:.65rem .75rem;
+    text-align:left;cursor:pointer;border-radius:var(--radius-s);border:1px solid var(--border);background:var(--bg-2);
+    transition:border-color .16s,background .16s}
+  .track:hover{border-color:var(--border-strong);background:var(--surface-2)}
+  .track.active{border-color:color-mix(in srgb,var(--accent) 60%,transparent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+  .track-no{color:var(--accent);font-size:.74rem;font-weight:700;font-variant-numeric:tabular-nums}
+  .track-name{display:block;color:#fff;font-size:.88rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .track-world{display:block;color:var(--faint);font-size:.74rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .track-time{color:var(--muted);font-size:.74rem;font-variant-numeric:tabular-nums}
+  @media (max-width:860px){.soundtrack-shell{grid-template-columns:1fr}}
+  @media (max-width:520px){.track-list{grid-template-columns:1fr}}
 </style>
 </head>
-<body>
+<body class="theme-ibomb">
 
-<nav>
+<header class="nav">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../img/icon.png" alt="MW Design"> MW Design</a>
-    <a class="nav-cta" href="https://mikewickens.itch.io/i-bomb">Play on itch.io</a>
-  </div>
-</nav>
-
-<header class="hero" id="top">
-  <div class="hero-inner wrap">
-    <img class="hero-logo" src="../img/ibomb/logo.png" alt="i-Bomb">
-    <div class="hero-sub">The last one is red</div>
-    <p class="hero-tag">An arcade platformer in the Bomb Jack tradition. Every bomb on the screen has to go — but one of them is lit, and taking them in order is where the score lives.</p>
-    <div class="cta-row">
-      <a class="btn btn-itch" href="https://mikewickens.itch.io/i-bomb">Download on itch.io</a>
-      <a class="btn btn-apple" href="https://apps.apple.com/app/id6806213447"> Download on the App Store</a>
-      <a class="btn btn-ghost" href="#full-run">▶ Watch the full run</a>
-    </div>
-    <div class="meta-line"><b>24 stages</b> · Two tours · Keyboard, gamepad &amp; touch · <b>Windows</b>, <b>iPhone</b>, <b>iPad</b> &amp; <b>Mac</b> · Built in <b>Godot 4</b></div>
+    <a class="brand" href="../"><img src="../img/brand/mw-mark-256.png" alt=""><span><b>MW</b> Design</span></a>
+    <nav class="nav-links" aria-label="Main">
+      <details class="menu">
+        <summary>Apps</summary>
+        <div class="menu-panel">
+          <a href="../xgalaga-hd/"><img src="../img/icons/xgalaga-hd.jpg" alt=""><span>XGalaga HD<small>Apple platforms</small></span></a>
+          <a href="../touch-relief/"><img src="../img/icons/touch-relief.jpg" alt=""><span>TouchRelief<small>iPhone, iPad &amp; Watch</small></span></a>
+          <a href="../i-bomb/"><img src="../img/icons/i-bomb.jpg" alt=""><span>i-Bomb<small>Apple &amp; Windows</small></span></a>
+          <a href="../xgalaga-vr/"><img src="../img/icons/xgalaga-vr.jpg" alt=""><span>XGalaga VR<small>Meta Quest</small></span></a>
+          <a href="../chroma-vector/"><img src="../img/icons/chroma-vector.jpg" alt=""><span>Chroma Vector<small>Apple platforms</small></span></a>
+          <a href="../xgalaga/"><img src="../img/icons/xgalaga.jpg" alt=""><span>XGalaga<small>Apple platforms</small></span></a>
+          <a href="../modern-domination/"><img src="../img/icons/modern-domination.jpg" alt=""><span>Modern Domination<small>Android</small></span></a>
+        </div>
+      </details>
+      <a href="../#studio">Studio</a>
+      <a href="mailto:mwdesignhelp@gmail.com">Contact</a>
+    </nav>
+    <div class="nav-cta"><a class="btn btn-sm btn-primary" href="https://apps.apple.com/app/id6806213447">App Store</a></div>
   </div>
 </header>
 
-<section id="full-run">
+<main>
+
+<!-- ============ Hero ============ -->
+<section class="hero">
+  <div class="hero-bg" style="background-image:url('../img/ibomb/hero.jpg')"></div>
   <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Full playthrough</div>
-      <h2>All 12 Classic stages</h2>
-      <p>Watch Classic Mode from First Light to The Long Night in one complete
-         player-controlled run, captured at 1440p and 60 FPS with the game&rsquo;s
-         original music and sound effects.</p>
+    <div>
+      <div class="hero-id">
+        <img class="app-icon" src="../img/icons/i-bomb.jpg" alt="i-Bomb app icon">
+        <div class="meta">
+          <span class="pill pill-live">Out now</span>
+          <small>Arcade platformer · Windows, iPhone, iPad &amp; Mac</small>
+        </div>
+      </div>
+      <h1>i-Bomb<span class="sub">The last one is red.</span></h1>
+      <p class="lede">An arcade platformer in the Bomb Jack tradition. Every bomb on the screen has to go — but one of them is lit, and taking them in order is where the score lives.</p>
+      <div class="cta-row">
+        <a class="btn btn-itch" href="https://mikewickens.itch.io/i-bomb">Download on itch.io</a>
+        <a class="btn btn-apple" href="https://apps.apple.com/app/id6806213447">Download on the App Store</a>
+        <a class="btn btn-ghost" href="#full-run">Watch the full run</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><b>24</b> stages</span>
+        <span class="chip">Two tours</span>
+        <span class="chip">Keyboard, gamepad &amp; touch</span>
+        <span class="chip">Built in <b>Godot 4</b></span>
+      </div>
     </div>
-    <div class="youtube-frame">
-      <iframe src="https://www.youtube.com/embed/TU7fQwKRE4g?rel=0"
-              title="i-Bomb — Full Classic Mode Playthrough — All 12 Levels"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
+    <div class="hero-media">
+      <img class="hero-logo-art" src="../img/ibomb/logo.png" alt="i-Bomb logo">
     </div>
-    <p class="caption">The complete 12-level Classic tour in 5 minutes 13 seconds.</p>
   </div>
 </section>
 
-<section id="soundtrack" class="soundtrack-section">
+<!-- ============ How it plays ============ -->
+<section class="section" id="features">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Original soundtrack</div>
+      <span class="eyebrow">How it plays</span>
+      <h2>Anyone can clear a screen</h2>
+      <p>Clearing it <em>well</em> is the game. One bomb is always lit, and it is never the one nearest you.</p>
+    </div>
+    <div class="features">
+      <div class="feature reveal"><span class="k">01</span><h3>Twenty bombs, one lit</h3><p>Take the lit one and the chain climbs. Take any other and it breaks. The route is the whole decision.</p></div>
+      <div class="feature reveal"><span class="k">02</span><h3>Jump, then fly</h3><p>The jump is enormous. Press again in the air and you hover — hold it, tap it, steer it. Nothing is out of reach if you commit.</p></div>
+      <div class="feature reveal"><span class="k">03</span><h3>The i-Bomb</h3><p>The last bomb is red, and it only appears once every black one is gone. It lands somewhere new every single run.</p></div>
+      <div class="feature reveal"><span class="k">04</span><h3>Two tours, 24 stages</h3><p>Twelve single-screen Classic stages, and twelve Arcade stages three screens wide with fifty bombs apiece.</p></div>
+      <div class="feature reveal"><span class="k">05</span><h3>Seven power-ups</h3><p>Shield, Magnet, Time, Double score, Overcharge and a one-up — earned by playing well, not by waiting.</p></div>
+      <div class="feature reveal"><span class="k">06</span><h3>Play it your way</h3><p>Keyboard, Xbox pad, PlayStation pad or touch controls, with safe-area layout on handhelds.</p></div>
+      <div class="feature reveal"><span class="k">07</span><h3>Thirteen original tracks</h3><p>A title theme plus one original score for every world, composed and produced by Mike Wickens.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Full playthrough ============ -->
+<section class="section section-alt" id="full-run">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Full playthrough</span>
+      <h2>All 12 Classic stages</h2>
+      <p>Watch Classic Mode from First Light to The Long Night in one complete player-controlled run, captured at 1440p and 60&nbsp;FPS with the game&rsquo;s original music and sound effects.</p>
+    </div>
+    <div class="video-wide reveal">
+      <div class="frame-wide">
+        <iframe src="https://www.youtube.com/embed/TU7fQwKRE4g?rel=0"
+                title="i-Bomb — Full Classic Mode Playthrough — All 12 Levels"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+      </div>
+      <p class="caption">The complete 12-level Classic tour in 5 minutes 13 seconds.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Stages ============ -->
+<section class="section" id="stages">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Twenty-four stages</span>
+      <h2>Every stage hand-built</h2>
+      <p>Twelve worlds, each played twice &mdash; once as a single screen, once as a wide arcade run of fifty bombs. Tap any shot to enlarge.</p>
+    </div>
+    <div class="gallery">
+      <figure class="shot"><img src="../img/ibomb/stage-01.jpg" alt="Classic 01 — First Light, in Desert Ruins" loading="lazy"><figcaption><span class="tag">Classic 01</span> First Light<em>Desert Ruins</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-02.jpg" alt="Classic 02 — The Spire, in Enchanted Forest" loading="lazy"><figcaption><span class="tag">Classic 02</span> The Spire<em>Enchanted Forest</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-03.jpg" alt="Classic 03 — Shift Change, in Clockwork City" loading="lazy"><figcaption><span class="tag">Classic 03</span> Shift Change<em>Clockwork City</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-04.jpg" alt="Classic 04 — The Long Gaps, in Storm Peaks" loading="lazy"><figcaption><span class="tag">Classic 04</span> The Long Gaps<em>Storm Peaks</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-05.jpg" alt="Classic 05 — Nothing Holds, in Sky Temple" loading="lazy"><figcaption><span class="tag">Classic 05</span> Nothing Holds<em>Sky Temple</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-06.jpg" alt="Classic 06 — Neon Gates, in Tokyo Nights" loading="lazy"><figcaption><span class="tag">Classic 06</span> Neon Gates<em>Tokyo Nights</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-07.jpg" alt="Classic 07 — Rooftop Hours, in London Skyline" loading="lazy"><figcaption><span class="tag">Classic 07</span> Rooftop Hours<em>London Skyline</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-08.jpg" alt="Classic 08 — Ash and Iron, in Volcanic Island" loading="lazy"><figcaption><span class="tag">Classic 08</span> Ash and Iron<em>Volcanic Island</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-09.jpg" alt="Classic 09 — Deep Currents, in Underwater City" loading="lazy"><figcaption><span class="tag">Classic 09</span> Deep Currents<em>Underwater City</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-10.jpg" alt="Classic 10 — The Circuit, in Night Carnival" loading="lazy"><figcaption><span class="tag">Classic 10</span> The Circuit<em>Night Carnival</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-11.jpg" alt="Classic 11 — Drift, in Orbital Station" loading="lazy"><figcaption><span class="tag">Classic 11</span> Drift<em>Orbital Station</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-12.jpg" alt="Classic 12 — The Long Night, in Haunted Mansion" loading="lazy"><figcaption><span class="tag">Classic 12</span> The Long Night<em>Haunted Mansion</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-13.jpg" alt="Arcade 01 — Endless Dunes, in Desert Ruins" loading="lazy"><figcaption><span class="tag alt">Arcade 01</span> Endless Dunes<em>Desert Ruins</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-14.jpg" alt="Arcade 02 — The Deep Spire, in Enchanted Forest" loading="lazy"><figcaption><span class="tag alt">Arcade 02</span> The Deep Spire<em>Enchanted Forest</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-15.jpg" alt="Arcade 03 — Shift Change, in Clockwork City" loading="lazy"><figcaption><span class="tag alt">Arcade 03</span> Shift Change<em>Clockwork City</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-16.jpg" alt="Arcade 04 — The Long Gaps, in Storm Peaks" loading="lazy"><figcaption><span class="tag alt">Arcade 04</span> The Long Gaps<em>Storm Peaks</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-17.jpg" alt="Arcade 05 — Nothing Holds, in Sky Temple" loading="lazy"><figcaption><span class="tag alt">Arcade 05</span> Nothing Holds<em>Sky Temple</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-18.jpg" alt="Arcade 06 — Neon Gates, in Tokyo Nights" loading="lazy"><figcaption><span class="tag alt">Arcade 06</span> Neon Gates<em>Tokyo Nights</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-19.jpg" alt="Arcade 07 — Rooftop Hours, in London Skyline" loading="lazy"><figcaption><span class="tag alt">Arcade 07</span> Rooftop Hours<em>London Skyline</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-20.jpg" alt="Arcade 08 — Ash and Iron, in Volcanic Island" loading="lazy"><figcaption><span class="tag alt">Arcade 08</span> Ash and Iron<em>Volcanic Island</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-21.jpg" alt="Arcade 09 — Deep Currents, in Underwater City" loading="lazy"><figcaption><span class="tag alt">Arcade 09</span> Deep Currents<em>Underwater City</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-22.jpg" alt="Arcade 10 — The Circuit, in Night Carnival" loading="lazy"><figcaption><span class="tag alt">Arcade 10</span> The Circuit<em>Night Carnival</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-23.jpg" alt="Arcade 11 — Drift, in Orbital Station" loading="lazy"><figcaption><span class="tag alt">Arcade 11</span> Drift<em>Orbital Station</em></figcaption></figure>
+      <figure class="shot"><img src="../img/ibomb/stage-24.jpg" alt="Arcade 12 — The Long Night, in Haunted Mansion" loading="lazy"><figcaption><span class="tag alt">Arcade 12</span> The Long Night<em>Haunted Mansion</em></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ In motion ============ -->
+<section class="section section-alt" id="motion">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">In motion</span>
+      <h2>The title screen plays itself</h2>
+      <p>He flies a circuit, sets down, and waits. The i-Bomb turns up on the far side, he goes and gets it — then flies a victory lap, lands on the opposite side, and the next world fades in behind him. All twelve, before you have pressed anything.</p>
+    </div>
+    <div class="video-wide reveal">
+      <div class="frame-wide">
+        <video src="../img/ibomb/titlescreen.mp4" poster="../img/ibomb/titlescreen-poster.jpg"
+               autoplay muted loop playsinline preload="metadata" aria-label="i-Bomb title screen attract mode"></video>
+      </div>
+      <p class="caption">Captured live from the game&rsquo;s own attract mode. Nothing here is scripted for the trailer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Soundtrack ============ -->
+<section class="section" id="soundtrack">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Original soundtrack</span>
       <h2>Thirteen tracks. One score for every world.</h2>
-      <p>Composed by Mike Wickens for i-Bomb: a dedicated title theme and twelve
-         original stage tracks, each written to give its world a distinct identity.
-         Select any track to hear the complete piece.</p>
+      <p>Composed by Mike Wickens for i-Bomb: a dedicated title theme and twelve original stage tracks, each written to give its world a distinct identity. Select any track to hear the complete piece.</p>
     </div>
     <div class="soundtrack-shell">
       <article class="now-playing" aria-live="polite">
@@ -213,202 +236,91 @@
   </div>
 </section>
 
-<section id="stages">
+<!-- ============ At a glance ============ -->
+<section class="section section-alt">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Twenty-four stages</div>
-      <h2>Every stage hand-built</h2>
-      <p>Twelve worlds, each played twice &mdash; once as a single screen, once as a wide
-         arcade run of fifty bombs. Tap any shot to enlarge.</p>
+      <span class="eyebrow">At a glance</span>
+      <h2>The details</h2>
+      <p>Every stage, sprite and note of music in i-Bomb was made in-house at MW Design.</p>
     </div>
-    <div class="gallery">
-      <figure class="tile" data-tour="classic">
-        <img src="../img/ibomb/stage-01.jpg" alt="Classic 01 — First Light, in Desert Ruins" loading="lazy">
-        <figcaption><span class="tag classic">CLASSIC 01</span> First Light<em>Desert Ruins</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="classic">
-        <img src="../img/ibomb/stage-02.jpg" alt="Classic 02 — The Spire, in Enchanted Forest" loading="lazy">
-        <figcaption><span class="tag classic">CLASSIC 02</span> The Spire<em>Enchanted Forest</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="classic">
-        <img src="../img/ibomb/stage-03.jpg" alt="Classic 03 — Shift Change, in Clockwork City" loading="lazy">
-        <figcaption><span class="tag classic">CLASSIC 03</span> Shift Change<em>Clockwork City</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="classic">
-        <img src="../img/ibomb/stage-04.jpg" alt="Classic 04 — The Long Gaps, in Storm Peaks" loading="lazy">
-        <figcaption><span class="tag classic">CLASSIC 04</span> The Long Gaps<em>Storm Peaks</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="classic">
-        <img src="../img/ibomb/stage-05.jpg" alt="Classic 05 — Nothing Holds, in Sky Temple" loading="lazy">
-        <figcaption><span class="tag classic">CLASSIC 05</span> Nothing Holds<em>Sky Temple</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="classic">
-        <img src="../img/ibomb/stage-06.jpg" alt="Classic 06 — Neon Gates, in Tokyo Nights" loading="lazy">
-        <figcaption><span class="tag classic">CLASSIC 06</span> Neon Gates<em>Tokyo Nights</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="classic">
-        <img src="../img/ibomb/stage-07.jpg" alt="Classic 07 — Rooftop Hours, in London Skyline" loading="lazy">
-        <figcaption><span class="tag classic">CLASSIC 07</span> Rooftop Hours<em>London Skyline</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="classic">
-        <img src="../img/ibomb/stage-08.jpg" alt="Classic 08 — Ash and Iron, in Volcanic Island" loading="lazy">
-        <figcaption><span class="tag classic">CLASSIC 08</span> Ash and Iron<em>Volcanic Island</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="classic">
-        <img src="../img/ibomb/stage-09.jpg" alt="Classic 09 — Deep Currents, in Underwater City" loading="lazy">
-        <figcaption><span class="tag classic">CLASSIC 09</span> Deep Currents<em>Underwater City</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="classic">
-        <img src="../img/ibomb/stage-10.jpg" alt="Classic 10 — The Circuit, in Night Carnival" loading="lazy">
-        <figcaption><span class="tag classic">CLASSIC 10</span> The Circuit<em>Night Carnival</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="classic">
-        <img src="../img/ibomb/stage-11.jpg" alt="Classic 11 — Drift, in Orbital Station" loading="lazy">
-        <figcaption><span class="tag classic">CLASSIC 11</span> Drift<em>Orbital Station</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="classic">
-        <img src="../img/ibomb/stage-12.jpg" alt="Classic 12 — The Long Night, in Haunted Mansion" loading="lazy">
-        <figcaption><span class="tag classic">CLASSIC 12</span> The Long Night<em>Haunted Mansion</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="arcade">
-        <img src="../img/ibomb/stage-13.jpg" alt="Arcade 01 — Endless Dunes, in Desert Ruins" loading="lazy">
-        <figcaption><span class="tag arcade">ARCADE 01</span> Endless Dunes<em>Desert Ruins</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="arcade">
-        <img src="../img/ibomb/stage-14.jpg" alt="Arcade 02 — The Deep Spire, in Enchanted Forest" loading="lazy">
-        <figcaption><span class="tag arcade">ARCADE 02</span> The Deep Spire<em>Enchanted Forest</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="arcade">
-        <img src="../img/ibomb/stage-15.jpg" alt="Arcade 03 — Shift Change, in Clockwork City" loading="lazy">
-        <figcaption><span class="tag arcade">ARCADE 03</span> Shift Change<em>Clockwork City</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="arcade">
-        <img src="../img/ibomb/stage-16.jpg" alt="Arcade 04 — The Long Gaps, in Storm Peaks" loading="lazy">
-        <figcaption><span class="tag arcade">ARCADE 04</span> The Long Gaps<em>Storm Peaks</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="arcade">
-        <img src="../img/ibomb/stage-17.jpg" alt="Arcade 05 — Nothing Holds, in Sky Temple" loading="lazy">
-        <figcaption><span class="tag arcade">ARCADE 05</span> Nothing Holds<em>Sky Temple</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="arcade">
-        <img src="../img/ibomb/stage-18.jpg" alt="Arcade 06 — Neon Gates, in Tokyo Nights" loading="lazy">
-        <figcaption><span class="tag arcade">ARCADE 06</span> Neon Gates<em>Tokyo Nights</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="arcade">
-        <img src="../img/ibomb/stage-19.jpg" alt="Arcade 07 — Rooftop Hours, in London Skyline" loading="lazy">
-        <figcaption><span class="tag arcade">ARCADE 07</span> Rooftop Hours<em>London Skyline</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="arcade">
-        <img src="../img/ibomb/stage-20.jpg" alt="Arcade 08 — Ash and Iron, in Volcanic Island" loading="lazy">
-        <figcaption><span class="tag arcade">ARCADE 08</span> Ash and Iron<em>Volcanic Island</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="arcade">
-        <img src="../img/ibomb/stage-21.jpg" alt="Arcade 09 — Deep Currents, in Underwater City" loading="lazy">
-        <figcaption><span class="tag arcade">ARCADE 09</span> Deep Currents<em>Underwater City</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="arcade">
-        <img src="../img/ibomb/stage-22.jpg" alt="Arcade 10 — The Circuit, in Night Carnival" loading="lazy">
-        <figcaption><span class="tag arcade">ARCADE 10</span> The Circuit<em>Night Carnival</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="arcade">
-        <img src="../img/ibomb/stage-23.jpg" alt="Arcade 11 — Drift, in Orbital Station" loading="lazy">
-        <figcaption><span class="tag arcade">ARCADE 11</span> Drift<em>Orbital Station</em></figcaption>
-      </figure>
-      <figure class="tile" data-tour="arcade">
-        <img src="../img/ibomb/stage-24.jpg" alt="Arcade 12 — The Long Night, in Haunted Mansion" loading="lazy">
-        <figcaption><span class="tag arcade">ARCADE 12</span> The Long Night<em>Haunted Mansion</em></figcaption>
-      </figure>
-    </div>
+    <dl class="spec">
+      <div><dt>Stages</dt><dd>24 across two tours: 12 Classic, 12 Arcade</dd></div>
+      <div><dt>Platforms</dt><dd>Windows, iPhone, iPad and Mac</dd></div>
+      <div><dt>Windows</dt><dd>The complete release, free on itch.io</dd></div>
+      <div><dt>iPhone, iPad &amp; Mac</dt><dd>App Store, with the first three hours of Classic play free</dd></div>
+      <div><dt>Controls</dt><dd>Keyboard, Xbox pad, PlayStation pad or touch</dd></div>
+      <div><dt>Soundtrack</dt><dd>13 original tracks by Mike Wickens</dd></div>
+      <div><dt>Engine</dt><dd>Godot 4</dd></div>
+      <div><dt>Developer</dt><dd>MW Design</dd></div>
+    </dl>
   </div>
 </section>
-<section id="motion" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+
+<!-- ============ Release ============ -->
+<section class="section" id="release">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">In motion</div>
-      <h2>The title screen plays itself</h2>
-      <p>He flies a circuit, sets down, and waits. The i-Bomb turns up on the far side, he goes and gets it — then flies a victory lap, lands on the opposite side, and the next world fades in behind him. All twelve, before you have pressed anything.</p>
-    </div>
-    <div class="video-frame">
-      <video src="../img/ibomb/titlescreen.mp4" poster="../img/ibomb/titlescreen-poster.jpg"
-             autoplay muted loop playsinline preload="metadata"></video>
-    </div>
-    <p class="caption">Captured live from the game&rsquo;s own attract mode. Nothing here is scripted for the trailer.</p>
-  </div>
-</section>
-<section id="features">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">How it plays</div>
-      <h2>Anyone can clear a screen</h2>
-      <p>Clearing it <em>well</em> is the game. One bomb is always lit, and it is never the one nearest you.</p>
-    </div>
-    <div class="grid">
-      <div class="feat"><div class="ico">💣</div><h3>Twenty bombs, one lit</h3>
-        <p>Take the lit one and the chain climbs. Take any other and it breaks. The route is the whole decision.</p></div>
-      <div class="feat"><div class="ico">🦸</div><h3>Jump, then fly</h3>
-        <p>The jump is enormous. Press again in the air and you hover — hold it, tap it, steer it. Nothing is out of reach if you commit.</p></div>
-      <div class="feat"><div class="ico">🔴</div><h3>The i-Bomb</h3>
-        <p>The last bomb is red, and it only appears once every black one is gone. It lands somewhere new every single run.</p></div>
-      <div class="feat"><div class="ico">🗺️</div><h3>Two tours, 24 stages</h3>
-        <p>Twelve single-screen Classic stages, and twelve Arcade stages three screens wide with fifty bombs apiece.</p></div>
-      <div class="feat"><div class="ico">⚡</div><h3>Seven power-ups</h3>
-        <p>Shield, Magnet, Time, Double score, Overcharge and a one-up — earned by playing well, not by waiting.</p></div>
-      <div class="feat"><div class="ico">🎮</div><h3>Play it your way</h3>
-        <p>Keyboard, Xbox pad, PlayStation pad or touch controls, with safe-area layout on handhelds.</p></div>
-      <div class="feat"><div class="ico">🎵</div><h3>Thirteen original tracks</h3>
-        <p>A title theme plus one original score for every world, composed and produced by Mike Wickens.</p></div>
+    <div class="cta-band reveal">
+      <img class="app-icon" src="../img/icons/i-bomb.jpg" alt="">
+      <span class="pill pill-live">Out now</span>
+      <h2 style="margin-top:1rem">Play i-Bomb now</h2>
+      <p>All 24 stages across the Classic and Arcade tours, with the full twelve-theme soundtrack included. <b>Windows</b>: the complete release, free on itch.io. <b>iPhone, iPad &amp; Mac</b>: on the App Store, with touch controls built for thumbs and the first three hours of Classic play free.</p>
+      <div class="cta-row">
+        <a class="btn btn-itch" href="https://mikewickens.itch.io/i-bomb">Download on itch.io</a>
+        <a class="btn btn-apple" href="https://apps.apple.com/app/id6806213447">Download on the App Store</a>
+        <a class="btn btn-ghost" href="../">See our other games</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="studio">
-  <div class="wrap">
-    <div class="eyebrow">The studio</div>
-    <h2 style="font-size:1.6rem;color:#fff5e4;margin:.4rem 0 .2rem">MW Design</h2>
-    <p>An independent studio crafting mobile games, Wear&nbsp;OS arcade titles and custom smartwatch watch faces since 2016. Every stage, sprite and note of music in i-Bomb was made in-house.</p>
-    <div class="cta-row">
-      <a class="btn btn-ghost" href="../">See our other games</a>
-    </div>
-  </div>
-</section>
+</main>
 
-<section class="final" id="release">
+<footer class="footer">
   <div class="wrap">
-    <h2>Play i-Bomb now</h2>
-    <p style="color:var(--dim);max-width:520px;margin:1rem auto 0">
-      All 24 stages across the Classic and Arcade tours, with the full twelve-theme
-      soundtrack included.
-      <br><br>
-      <b>Windows</b> — the complete release, free on itch.io.
-      <br>
-      <b>iPhone, iPad &amp; Mac</b> — on the App Store, with touch controls built for
-      thumbs and the first three hours of Classic play free.
-    </p>
-    <div class="cta-row">
-      <a class="btn btn-itch" href="https://mikewickens.itch.io/i-bomb">Download on itch.io</a>
-      <a class="btn btn-apple" href="https://apps.apple.com/app/id6806213447"> Download on the App Store</a>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../"><img src="../img/brand/mw-logo-dark.png" alt="MW Design"></a>
+        <p>An independent studio making games and apps for Apple platforms, Android, Wear&nbsp;OS and Meta Quest since 2016.</p>
+      </div>
+      <div>
+        <h4>Apple</h4>
+        <ul>
+          <li><a href="../xgalaga-hd/">XGalaga HD</a></li>
+          <li><a href="../touch-relief/">TouchRelief</a></li>
+          <li><a href="../i-bomb/">i-Bomb</a></li>
+          <li><a href="../chroma-vector/">Chroma Vector</a></li>
+          <li><a href="../xgalaga/">XGalaga</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>More platforms</h4>
+        <ul>
+          <li><a href="../xgalaga-vr/">XGalaga VR · Quest</a></li>
+          <li><a href="../modern-domination/">Modern Domination · Android</a></li>
+          <li><a href="../i-bomb/">i-Bomb · Windows</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="../#studio">About</a></li>
+          <li><a href="mailto:mwdesignhelp@gmail.com">Contact</a></li>
+          <li><a href="https://sites.google.com/view/mwdesignprivacy">Privacy policy</a></li>
+          <li><a href="https://apps.apple.com/us/developer/michael-wickens/id1880185005">App Store</a></li>
+          <li><a href="https://play.google.com/store/apps/dev?id=6344319024398727942">Google Play</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div>© 2026 MW Design</div>
-    <div style="margin-top:.6rem">
-      <a href="../">MW Design</a>·
-      <a href="../modern-domination/">Modern Domination</a>·
-      <a href="mailto:mwdesignhelp@gmail.com">Contact</a>
+    <div class="footer-bottom">
+      <span>&copy; 2026 MW Design. All rights reserved.</span>
+      <span class="legal">i-Bomb, its artwork, music and level designs are &copy;&nbsp;2026 MW Design. All rights reserved.</span>
     </div>
-    <div style="margin-top:.9rem;font-size:.78rem;opacity:.72">i-Bomb, its artwork, music and level designs are &copy;&nbsp;2026 MW Design. All rights reserved.</div>
   </div>
 </footer>
 
-<div class="lb" id="lb"><img src="" alt=""></div>
+<script src="../js/site.js" defer></script>
 <script>
-  const lb=document.getElementById('lb'),lbImg=lb.querySelector('img');
-  document.querySelectorAll('.gallery img').forEach(i=>i.addEventListener('click',()=>{lbImg.src=i.src;lb.classList.add('open')}));
-  lb.addEventListener('click',()=>lb.classList.remove('open'));
-
   const soundtrackPlayer=document.getElementById('soundtrack-player');
   const soundtrackArt=document.getElementById('soundtrack-art');
   const soundtrackIndex=document.getElementById('soundtrack-index');

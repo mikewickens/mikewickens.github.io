@@ -3,152 +3,183 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MW Design — Games</title>
-<meta name="description" content="MW Design — an independent studio making mobile games, Wear OS arcade titles and custom watch faces since 2016. Makers of Modern Domination: Future Warfare, i-Bomb, XGalaga HD and XGalaga VR.">
-<meta property="og:title" content="MW Design — Games">
-<meta property="og:description" content="An independent studio making mobile games, Wear OS arcade titles and custom watch faces since 2016.">
-<meta property="og:image" content="https://mikewickens.github.io/img/hero.jpg">
+<title>MW Design — Independent games &amp; apps studio</title>
+<meta name="description" content="MW Design is an independent studio making arcade games and wellbeing apps for iPhone, iPad, Mac, Apple TV, Apple Watch, Android and Meta Quest. Makers of XGalaga HD, TouchRelief, i-Bomb, Chroma Vector, XGalaga VR and Modern Domination.">
+<meta property="og:title" content="MW Design — Independent games &amp; apps studio">
+<meta property="og:description" content="Arcade games and wellbeing apps for every Apple screen, Android and Meta Quest. Designed, coded and scored in-house since 2016.">
+<meta property="og:image" content="https://mikewickens.github.io/img/xgalaga/card.jpg">
 <meta property="og:type" content="website">
-<link rel="icon" href="img/icon.png">
-<style>
-  :root{
-    --bg:#050e18; --bg2:#071626; --panel:rgba(13,40,66,.55);
-    --cyan:#4fc3e8; --cyan-bright:#7ad7f0; --gold:#d9ad57;
-    --text:#dbe8f4; --dim:#8ba3b8; --line:rgba(79,195,232,.28);
-    color-scheme:dark;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-    background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
-  a{color:var(--cyan)}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 1.25rem}
-  .eyebrow{letter-spacing:.32em;text-transform:uppercase;font-size:.72rem;color:var(--cyan);font-weight:600}
-
-  nav{position:sticky;top:0;z-index:50;background:rgba(5,14,24,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-  .brand{display:flex;align-items:center;gap:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.9rem;color:#fff;text-decoration:none}
-  .brand img{width:30px;height:30px;border-radius:7px}
-  .nav-links a{color:var(--dim);text-decoration:none;font-size:.85rem;margin-left:1.2rem}
-  .nav-links a:hover{color:var(--cyan-bright)}
-
-  header.top{padding:5.5rem 0 3.5rem;text-align:center;
-    background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(79,195,232,.10),transparent 70%)}
-  header.top h1{font-size:clamp(2.2rem,7vw,4rem);font-weight:800;letter-spacing:.06em;text-transform:uppercase;line-height:1;
-    background:linear-gradient(180deg,#eef6fc 0%,#9fb8cc 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-  header.top p{margin:1.3rem auto 0;max-width:600px;color:#c3d4e2;font-size:1.05rem}
-
-  section{padding:3.5rem 0}
-  .sec-head{text-align:center;margin-bottom:2.5rem}
-  .sec-head h2{font-size:clamp(1.5rem,4vw,2.2rem);color:#eef6fc;margin-top:.5rem}
-
-  /* ---- game cards ---- */
-  .games{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:1.6rem}
-  .game{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;
-    background:var(--panel);text-decoration:none;color:inherit;display:flex;flex-direction:column;
-    transition:transform .18s,box-shadow .18s,border-color .18s}
-  .game:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(0,0,0,.5);border-color:rgba(79,195,232,.5)}
-  .game .art{aspect-ratio:16/9;background-size:cover;background-position:center;position:relative}
-  .game .art::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(5,14,24,0) 40%,rgba(5,14,24,.82) 100%)}
-  .game .body{padding:1.4rem 1.5rem 1.6rem}
-  .game h3{font-size:1.35rem;color:#eef6fc;letter-spacing:.02em}
-  .game .sub{color:var(--dim);font-size:.9rem;margin-top:.15rem}
-  .game p{color:var(--dim);font-size:.95rem;margin-top:.8rem}
-  .tag{display:inline-block;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;
-    padding:.28rem .6rem;border-radius:99px;margin-top:1rem}
-  .tag.live{background:rgba(1,135,95,.22);color:#57d3a8;border:1px solid rgba(1,135,95,.5)}
-  .tag.soon{background:rgba(217,173,87,.16);color:var(--gold);border:1px solid rgba(217,173,87,.45)}
-
-  .studio{background:linear-gradient(180deg,var(--bg),var(--bg2));border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
-  .studio p{color:var(--dim);max-width:560px;margin:.6rem auto 0}
-  .btn{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:700;border-radius:11px;
-    padding:.85rem 1.4rem;font-size:.95rem;margin-top:1.5rem;
-    background:rgba(79,195,232,.08);color:var(--cyan-bright);border:1px solid var(--line);transition:transform .15s}
-  .btn:hover{transform:translateY(-2px)}
-
-  footer{padding:2.4rem 0;text-align:center;color:var(--dim);font-size:.85rem}
-  footer a{color:var(--steel,#c6d6e4);text-decoration:none;margin:0 .5rem}
-</style>
+<meta name="theme-color" content="#06080d">
+<link rel="icon" href="img/brand/favicon-64.png">
+<link rel="apple-touch-icon" href="img/brand/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
 </head>
-<body>
+<body class="theme-studio">
 
-<nav>
+<header class="nav">
   <div class="wrap">
-    <a class="brand" href="#top"><img src="img/icon.png" alt="MW Design"> MW Design</a>
-    <div class="nav-links">
-      <a href="modern-domination/">Modern Domination</a>
-      <a href="i-bomb/">i-Bomb</a>
-      <a href="xgalaga-hd/">XGalaga HD</a>
-      <a href="xgalaga-vr/">XGalaga VR</a>
-      <a href="touch-relief/">TouchRelief</a>
-    </div>
-  </div>
-</nav>
-
-<header class="top" id="top">
-  <div class="wrap">
-    <div class="eyebrow">Independent since 2016</div>
-    <h1>MW Design</h1>
-    <p>Mobile games, Wear&nbsp;OS arcade titles, calm-down apps and custom smartwatch faces — built by one person who likes arcade games rather more than is sensible.</p>
+    <a class="brand" href="./"><img src="img/brand/mw-mark-256.png" alt=""><span><b>MW</b> Design</span></a>
+    <nav class="nav-links" aria-label="Main">
+      <details class="menu">
+        <summary>Apps</summary>
+        <div class="menu-panel">
+          <a href="xgalaga-hd/"><img src="img/icons/xgalaga-hd.jpg" alt=""><span>XGalaga HD<small>Apple platforms</small></span></a>
+          <a href="touch-relief/"><img src="img/icons/touch-relief.jpg" alt=""><span>TouchRelief<small>iPhone, iPad &amp; Watch</small></span></a>
+          <a href="i-bomb/"><img src="img/icons/i-bomb.jpg" alt=""><span>i-Bomb<small>Apple &amp; Windows</small></span></a>
+          <a href="xgalaga-vr/"><img src="img/icons/xgalaga-vr.jpg" alt=""><span>XGalaga VR<small>Meta Quest</small></span></a>
+          <a href="chroma-vector/"><img src="img/icons/chroma-vector.jpg" alt=""><span>Chroma Vector<small>Apple platforms</small></span></a>
+          <a href="xgalaga/"><img src="img/icons/xgalaga.jpg" alt=""><span>XGalaga<small>Apple platforms</small></span></a>
+          <a href="modern-domination/"><img src="img/icons/modern-domination.jpg" alt=""><span>Modern Domination<small>Android</small></span></a>
+        </div>
+      </details>
+      <a href="#studio">Studio</a>
+      <a href="mailto:mwdesignhelp@gmail.com">Contact</a>
+    </nav>
+    <div class="nav-cta"><a class="btn btn-sm btn-primary" href="#apps">View apps</a></div>
   </div>
 </header>
 
-<section>
+<main>
+
+<!-- ============ Hero ============ -->
+<section class="home-hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Independent games &amp; apps studio</span>
+      <h1>Games and apps,<br><span class="grad">crafted end to end.</span></h1>
+      <p class="lede">MW Design makes arcade games and wellbeing apps for iPhone, iPad, Mac, Apple&nbsp;TV, Apple&nbsp;Watch, Android and Meta&nbsp;Quest. Designed, coded and scored in-house since 2016.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#apps">Explore the apps</a>
+        <a class="btn btn-ghost" href="#featured">New: XGalaga HD</a>
+      </div>
+      <div class="app-dock" aria-label="Our apps">
+        <a href="xgalaga-hd/" title="XGalaga HD"><img src="img/icons/xgalaga-hd.jpg" alt="XGalaga HD"></a>
+        <a href="touch-relief/" title="TouchRelief"><img src="img/icons/touch-relief.jpg" alt="TouchRelief"></a>
+        <a href="i-bomb/" title="i-Bomb"><img src="img/icons/i-bomb.jpg" alt="i-Bomb"></a>
+        <a href="chroma-vector/" title="Chroma Vector"><img src="img/icons/chroma-vector.jpg" alt="Chroma Vector"></a>
+        <a href="xgalaga/" title="XGalaga"><img src="img/icons/xgalaga.jpg" alt="XGalaga"></a>
+        <a href="xgalaga-vr/" title="XGalaga VR"><img src="img/icons/xgalaga-vr.jpg" alt="XGalaga VR"></a>
+        <a href="modern-domination/" title="Modern Domination"><img src="img/icons/modern-domination.jpg" alt="Modern Domination"></a>
+      </div>
+      <div class="trust">
+        <span>4 games on the App Store</span>
+        <span>Google Play &amp; Wear&nbsp;OS</span>
+        <span>Meta Quest</span>
+        <span>Independent since 2016</span>
+      </div>
+    </div>
+    <div class="hero-brand" aria-hidden="true">
+      <img src="img/brand/mw-mark.png" alt="">
+    </div>
+    </div>
+</section>
+
+<!-- ============ Featured launch ============ -->
+<section class="section" id="featured" style="padding-bottom:0">
+  <div class="wrap">
+    <a class="featured reveal theme-xgalaga-hd" href="xgalaga-hd/">
+      <div class="media" style="background-image:url('img/xgalaga/hero.jpg')"></div>
+      <div class="body">
+        <div><span class="pill pill-new">Just launched</span></div>
+        <h3>XGalaga HD</h3>
+        <p><b>One app, one purchase, every Apple screen.</b> The 1998 wave shooter rebuilt from the ground up for iPhone, iPad, Mac, Apple&nbsp;TV and Apple&nbsp;Watch. Not one bitmap ships in the app: every ship, bolt and explosion is rendered on your own device.</p>
+        <div class="platforms"><span>iPhone</span><span>iPad</span><span>Mac</span><span>Apple TV</span><span>Apple Watch</span></div>
+        <div class="cta-row" style="margin-top:1.4rem"><span class="btn btn-primary">See XGalaga HD</span></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ All apps ============ -->
+<section class="section" id="apps">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">The games</div>
-      <h2>What we've made</h2>
+      <span class="eyebrow">The apps</span>
+      <h2>Everything we&rsquo;ve made</h2>
+      <p>Arcade shooters, a platformer, a strategy game and an anti-stress toolkit, across seven platforms.</p>
     </div>
-    <div class="games">
 
-      <a class="game" href="modern-domination/">
-        <div class="art" style="background-image:url('img/hero.jpg')"></div>
+    <div class="filters" role="group" aria-label="Filter by platform">
+      <button type="button" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" data-filter="apple" aria-pressed="false">Apple</button>
+      <button type="button" data-filter="android" aria-pressed="false">Android</button>
+      <button type="button" data-filter="quest" aria-pressed="false">Meta Quest</button>
+      <button type="button" data-filter="windows" aria-pressed="false">Windows</button>
+      <button type="button" data-filter="soon" aria-pressed="false">Coming soon</button>
+    </div>
+
+    <div class="apps">
+
+      <a class="app-card theme-xgalaga-hd" href="xgalaga-hd/" data-tags="apple">
+        <div class="art" style="background-image:url('img/xgalaga/card.jpg')"><span class="pill pill-live">Out now</span></div>
         <div class="body">
-          <h3>Modern Domination</h3>
-          <div class="sub">Future Warfare</div>
-          <p>Turn-based world conquest with tanks, drones and cruise missiles. Six battle theatres, three AI difficulties, fair dice always.</p>
-          <span class="tag live">Free on Google Play</span>
+          <div class="head"><img src="img/icons/xgalaga-hd.jpg" alt=""><div><h3>XGalaga HD</h3><div class="kind">Arcade wave shooter</div></div></div>
+          <p>The 1998 classic rebuilt from the ground up, with every sprite rendered on your own device. One purchase covers all five Apple platforms.</p>
+          <div class="platforms"><span>iPhone</span><span>iPad</span><span>Mac</span><span>Apple TV</span><span>Watch</span></div>
+          <span class="more">View game</span>
         </div>
       </a>
 
-      <a class="game" href="i-bomb/">
-        <div class="art" style="background-image:url('img/ibomb/card.jpg')"></div>
+      <a class="app-card theme-touchrelief" href="touch-relief/" data-tags="apple soon">
+        <div class="art" style="background-image:url('img/touchrelief/card.jpg')"><span class="pill pill-soon">Coming soon</span></div>
         <div class="body">
-          <h3>i-Bomb</h3>
-          <div class="sub">Arcade platformer</div>
-          <p>Clear every bomb on the screen, chain the lit ones for the big score, and fly. Twenty-four hand-built stages across two tours.</p>
-          <span class="tag live">On itch.io &amp; the App Store</span>
+          <div class="head"><img src="img/icons/touch-relief.jpg" alt=""><div><h3>TouchRelief</h3><div class="kind">Anti-stress sensory app</div></div></div>
+          <p>Somewhere to put your hands when your head is busy. 120 live-simulated textures, 3D fidget gadgets, breathing, sleep and a watch companion.</p>
+          <div class="platforms"><span>iPhone</span><span>iPad</span><span>Watch</span></div>
+          <span class="more">View app</span>
         </div>
       </a>
 
-      <a class="game" href="xgalaga-hd/">
-        <div class="art" style="background-image:url('img/xgalaga/card.jpg')"></div>
+      <a class="app-card theme-ibomb" href="i-bomb/" data-tags="apple windows">
+        <div class="art" style="background-image:url('img/ibomb/card.jpg')"><span class="pill pill-live">Out now</span></div>
         <div class="body">
-          <h3>XGalaga HD</h3>
-          <div class="sub">Arcade wave shooter</div>
-          <p>The 1998 classic rebuilt from the ground up. Not one bitmap ships in the app — every ship, bolt and explosion is rendered on your own device at first launch.</p>
-          <span class="tag live">On the App Store</span>
+          <div class="head"><img src="img/icons/i-bomb.jpg" alt=""><div><h3>i-Bomb</h3><div class="kind">Arcade platformer</div></div></div>
+          <p>Clear every bomb, chain the lit ones and fly. Twenty-four hand-built stages across two tours, with a thirteen-track original soundtrack.</p>
+          <div class="platforms"><span>iPhone</span><span>iPad</span><span>Mac</span><span>Windows</span></div>
+          <span class="more">View game</span>
         </div>
       </a>
 
-      <a class="game" href="touch-relief/">
-        <div class="art" style="background-image:url('img/touchrelief/card.jpg')"></div>
+      <a class="app-card theme-chroma-vector" href="chroma-vector/" data-tags="apple">
+        <div class="art" style="background-image:url('img/chroma-vector/card.jpg')"><span class="pill pill-live">Out now</span></div>
         <div class="body">
-          <h3>TouchRelief</h3>
-          <div class="sub">Anti-stress sensory app</div>
-          <p>Somewhere to put your hands when your head is busy. All 120 textures are simulated live on your device — nothing here is a video or a loop.</p>
-          <span class="tag soon">Coming soon to the App Store</span>
+          <div class="head"><img src="img/icons/chroma-vector.jpg" alt=""><div><h3>Chroma Vector</h3><div class="kind">Vertical shoot &rsquo;em up</div></div></div>
+          <p>Ten levels of relentless waves and boss fights over circuit-board terrain, drawn by a custom Metal renderer written from scratch.</p>
+          <div class="platforms"><span>iPhone</span><span>iPad</span><span>Mac</span><span>Apple TV</span></div>
+          <span class="more">View game</span>
         </div>
       </a>
 
-      <a class="game" href="xgalaga-vr/">
-        <div class="art" style="background-image:url('img/xgalaga-vr/card.jpg')"></div>
+      <a class="app-card theme-xgalaga" href="xgalaga/" data-tags="apple">
+        <div class="art" style="background-image:url('img/xgalaga-classic/card.jpg')"><span class="pill pill-live">Out now</span></div>
         <div class="body">
-          <h3>XGalaga VR</h3>
-          <div class="sub">Arcade wave shooter for Meta Quest</div>
-          <p>The arcade classic, surrounding you. All fifteen waves floating in a living galaxy, a boss every tenth wave, and a high score to beat. Deep space or your own room.</p>
-          <span class="tag soon">Coming soon to Meta Quest</span>
+          <div class="head"><img src="img/icons/xgalaga.jpg" alt=""><div><h3>XGalaga</h3><div class="kind">Classic arcade shooter</div></div></div>
+          <p>A faithful port of the 1998 X11 classic, with its original flight paths, sprites and sounds. It even plays on your wrist with the Digital Crown.</p>
+          <div class="platforms"><span>iPhone</span><span>iPad</span><span>Mac</span><span>Apple TV</span><span>Watch</span></div>
+          <span class="more">View game</span>
+        </div>
+      </a>
+
+      <a class="app-card theme-xgalaga-vr" href="xgalaga-vr/" data-tags="quest soon">
+        <div class="art" style="background-image:url('img/xgalaga-vr/card.jpg')"><span class="pill pill-soon">Coming soon</span></div>
+        <div class="body">
+          <div class="head"><img src="img/icons/xgalaga-vr.jpg" alt=""><div><h3>XGalaga VR</h3><div class="kind">Arcade shooter for Meta Quest</div></div></div>
+          <p>The arcade classic, surrounding you. All fifteen waves floating in a living galaxy, a boss every tenth wave. Deep space or your own room.</p>
+          <div class="platforms"><span>Quest 3</span><span>Quest 3S</span></div>
+          <span class="more">View game</span>
+        </div>
+      </a>
+
+      <a class="app-card theme-modern-dom" href="modern-domination/" data-tags="android">
+        <div class="art" style="background-image:url('img/hero.jpg')"><span class="pill pill-live">Free</span></div>
+        <div class="body">
+          <div class="head"><img src="img/icons/modern-domination.jpg" alt=""><div><h3>Modern Domination</h3><div class="kind">Turn-based world conquest</div></div></div>
+          <p>Tanks, drones and cruise missiles across six battle theatres. Three AI difficulties, fair dice always, and it plays offline.</p>
+          <div class="platforms"><span>Android</span><span>Phone</span><span>Tablet</span></div>
+          <span class="more">View game</span>
         </div>
       </a>
 
@@ -156,29 +187,108 @@
   </div>
 </section>
 
-<section class="studio">
+<!-- ============ Numbers ============ -->
+<section class="section section-alt" style="padding:clamp(3rem,6vw,4rem) 0">
   <div class="wrap">
-    <div class="eyebrow">The studio</div>
-    <h2 style="font-size:1.6rem;color:#eef6fc;margin:.4rem 0 .2rem">MW Design</h2>
-    <p>An independent studio crafting mobile games, Wear&nbsp;OS arcade titles and custom smartwatch watch faces since 2016.</p>
-    <a class="btn" href="https://play.google.com/store/apps/dev?id=6344319024398727942">See all MW Design apps</a>
+    <div class="stats reveal">
+      <div class="stat"><b>7</b><span>games and apps, released or on the way</span></div>
+      <div class="stat"><b>8</b><span>platforms, from Apple Watch to Meta Quest</span></div>
+      <div class="stat"><b>4</b><span>games live on the App Store</span></div>
+      <div class="stat"><b>0</b><span>ads or trackers in our paid Apple apps</span></div>
+      <div class="stat"><b>2016</b><span>independent since</span></div>
+    </div>
   </div>
 </section>
 
-<footer>
+<!-- ============ Studio ============ -->
+<section class="section" id="studio">
   <div class="wrap">
-    <div>© 2026 MW Design</div>
-    <div style="margin-top:.6rem">
-      <a href="modern-domination/">Modern Domination</a>·
-      <a href="i-bomb/">i-Bomb</a>·
-      <a href="xgalaga-hd/">XGalaga HD</a>·
-      <a href="xgalaga-vr/">XGalaga VR</a>·
-      <a href="touch-relief/">TouchRelief</a>·
-      <a href="mailto:mwdesignhelp@gmail.com">Contact</a>
+    <div class="about">
+      <div>
+        <span class="eyebrow">The studio</span>
+        <h2 style="margin-top:.8rem">One studio. Every screen.</h2>
+        <p style="margin-top:1rem">MW Design is an independent studio run by Mike Wickens. It started in 2016 with Wear&nbsp;OS arcade titles and custom smartwatch faces, and today ships native games and apps across the Apple ecosystem, Android and Meta Quest.</p>
+        <p style="margin-top:1rem">Every title is built from the engine up for the hardware it runs on, from the Digital Crown on a watch to a 4K television or a headset.</p>
+        <div class="stack">
+          <span class="chip">Swift</span><span class="chip">SwiftUI</span><span class="chip">SpriteKit</span><span class="chip">Metal</span>
+          <span class="chip">RealityKit</span><span class="chip">Objective-C</span><span class="chip">Godot 4</span><span class="chip">Unity</span>
+          <span class="chip">Android</span><span class="chip">Wear OS</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-ghost" href="https://apps.apple.com/us/developer/michael-wickens/id1880185005">App Store developer page</a>
+          <a class="btn btn-ghost" href="https://play.google.com/store/apps/dev?id=6344319024398727942">See all MW Design apps</a>
+        </div>
+      </div>
+      <div class="cols-3" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+        <div class="feature reveal"><span class="k">01</span><h3>Native on every platform</h3><p>iPhone, iPad, Mac, Apple TV and Apple Watch from one purchase where we can, with touch, keyboard, controller, Siri Remote and Digital Crown all supported.</p></div>
+        <div class="feature reveal"><span class="k">02</span><h3>Technology you can see</h3><p>XGalaga HD renders every sprite on device. TouchRelief simulates every texture live. Chroma Vector runs on a Metal renderer written from scratch.</p></div>
+        <div class="feature reveal"><span class="k">03</span><h3>Made in-house</h3><p>Design, code, level building and original soundtracks, from i-Bomb&rsquo;s thirteen tracks to XGalaga HD&rsquo;s score.</p></div>
+        <div class="feature reveal"><span class="k">04</span><h3>Respect for players</h3><p>Our paid Apple titles are buy once: no ads, no in-app purchases, no accounts and no tracking.</p></div>
+      </div>
     </div>
-    <div style="margin-top:.9rem;font-size:.78rem;opacity:.72">All games, artwork and music &copy;&nbsp;2026 MW Design. All rights reserved.</div>
+  </div>
+</section>
+
+<!-- ============ Contact ============ -->
+<section class="section" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <span class="eyebrow" style="justify-content:center">Get in touch</span>
+      <h2 style="margin-top:.9rem">Questions, feedback or press?</h2>
+      <p>Support requests, bug reports, review copies and collaboration enquiries all go to the same inbox, and a real person reads every one.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:mwdesignhelp@gmail.com">mwdesignhelp@gmail.com</a>
+        <a class="btn btn-ghost" href="https://sites.google.com/view/mwdesignprivacy">Privacy policy</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="./"><img src="img/brand/mw-logo-dark.png" alt="MW Design"></a>
+        <p>An independent studio making games and apps for Apple platforms, Android, Wear&nbsp;OS and Meta Quest since 2016.</p>
+      </div>
+      <div>
+        <h4>Apple</h4>
+        <ul>
+          <li><a href="xgalaga-hd/">XGalaga HD</a></li>
+          <li><a href="touch-relief/">TouchRelief</a></li>
+          <li><a href="i-bomb/">i-Bomb</a></li>
+          <li><a href="chroma-vector/">Chroma Vector</a></li>
+          <li><a href="xgalaga/">XGalaga</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>More platforms</h4>
+        <ul>
+          <li><a href="xgalaga-vr/">XGalaga VR · Quest</a></li>
+          <li><a href="modern-domination/">Modern Domination · Android</a></li>
+          <li><a href="i-bomb/">i-Bomb · Windows</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#studio">About</a></li>
+          <li><a href="mailto:mwdesignhelp@gmail.com">Contact</a></li>
+          <li><a href="https://sites.google.com/view/mwdesignprivacy">Privacy policy</a></li>
+          <li><a href="https://apps.apple.com/us/developer/michael-wickens/id1880185005">App Store</a></li>
+          <li><a href="https://play.google.com/store/apps/dev?id=6344319024398727942">Google Play</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 MW Design. All rights reserved.</span>
+      <span class="legal">All games, artwork and music &copy;&nbsp;2026 MW Design. Apple, App Store and Apple Watch are trademarks of Apple Inc. Google Play and Wear OS are trademarks of Google LLC. Meta Quest is a trademark of Meta Platforms, Inc.</span>
+    </div>
   </div>
 </footer>
 
+<script src="js/site.js" defer></script>
 </body>
 </html>
