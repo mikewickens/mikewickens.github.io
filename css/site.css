@@ -302,7 +302,7 @@ strong,b{color:var(--text);font-weight:600}
 .home-hero h1{margin-top:1.2rem;font-size:clamp(2.15rem,5.4vw,4.1rem)}
 .home-hero .lede{margin-top:1.4rem}
 .hero-brand{position:relative;display:grid;place-items:center;aspect-ratio:1.2;max-width:520px;width:100%;margin-left:auto}
-.hero-brand img{position:relative;width:100%}
+.hero-brand img{position:relative;width:88%}
 .app-dock{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.2rem}
 .app-dock a{display:block;width:52px;height:52px;border-radius:13px;overflow:hidden;border:1px solid var(--border-strong);
   box-shadow:0 10px 24px -10px rgba(0,0,0,.9);transition:transform .18s ease,border-color .18s ease}
