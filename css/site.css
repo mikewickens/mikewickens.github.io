@@ -294,6 +294,9 @@ strong,b{color:var(--text);font-weight:600}
   background:
     radial-gradient(50% 60% at 78% 35%,rgba(31,168,236,.20),transparent 70%),
     radial-gradient(40% 50% at 10% 90%,rgba(11,106,208,.16),transparent 70%)}
+.home-hero::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:56px 56px;mask-image:radial-gradient(70% 70% at 60% 40%,#000,transparent)}
 .home-hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:3rem;align-items:center;
   padding-top:clamp(4rem,10vw,7.5rem);padding-bottom:clamp(3.5rem,8vw,6rem)}
 .home-hero h1{margin-top:1.2rem;font-size:clamp(2.15rem,5.4vw,4.1rem)}
