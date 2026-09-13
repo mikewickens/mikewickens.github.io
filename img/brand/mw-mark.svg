@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 695.3 378.0" width="695.3" height="378.0">
+  <title>MW Design</title>
+  <defs>
+    <linearGradient id="m-left-leg" gradientUnits="userSpaceOnUse" x1="53.39" y1="46.39" x2="46.61" y2="371.25"><stop offset="0" stop-color="#1b4f96"/><stop offset="1" stop-color="#05b8ea"/></linearGradient>
+    <linearGradient id="m-left-band" gradientUnits="userSpaceOnUse" x1="220.96" y1="249.87" x2="43.98" y2="16.59"><stop offset="0" stop-color="#0261bd"/><stop offset="1" stop-color="#08c3f2"/></linearGradient>
+    <linearGradient id="m-right-leg" gradientUnits="userSpaceOnUse" x1="345.52" y1="49.67" x2="357.73" y2="373.51"><stop offset="0" stop-color="#1b4f97"/><stop offset="1" stop-color="#05b9eb"/></linearGradient>
+    <linearGradient id="m-right-band" gradientUnits="userSpaceOnUse" x1="205.51" y1="154.95" x2="396.14" y2="45"><stop offset="0" stop-color="#1665a5"/><stop offset="1" stop-color="#04bff2"/></linearGradient>
+    <linearGradient id="w-up-band" gradientUnits="userSpaceOnUse" x1="396.39" y1="246.12" x2="500.2" y2="251.76"><stop offset="0" stop-color="#1460a8"/><stop offset="1" stop-color="#1197c7"/></linearGradient>
+    <linearGradient id="w-right-leg" gradientUnits="userSpaceOnUse" x1="635.39" y1="331.16" x2="654.69" y2="9.92"><stop offset="0" stop-color="#1c5098"/><stop offset="1" stop-color="#02bbee"/></linearGradient>
+    <linearGradient id="w-down-band" gradientUnits="userSpaceOnUse" x1="657.1" y1="360.55" x2="476.05" y2="137.6"><stop offset="0" stop-color="#0369c1"/><stop offset="1" stop-color="#08caf6"/></linearGradient>
+  </defs>
+  <polygon points="6,45.4 93.3,158.7 93.3,328 6,370.4" fill="url(#m-left-leg)" stroke="url(#m-left-leg)" stroke-width="0.45" stroke-linejoin="round"/>
+  <polygon points="6,45.4 95,6 257.7,222 142.7,222" fill="url(#m-left-band)" stroke="url(#m-left-band)" stroke-width="0.45" stroke-linejoin="round"/>
+  <polygon points="306.7,159.4 397.7,47.7 397.7,372 306.7,328" fill="url(#m-right-leg)" stroke="url(#m-right-leg)" stroke-width="0.45" stroke-linejoin="round"/>
+  <polygon points="200,145.4 307.7,8 397.7,47.7 257.7,222" fill="url(#m-right-band)" stroke="url(#m-right-band)" stroke-width="0.45" stroke-linejoin="round"/>
+  <polygon points="200,145.4 216,124.7 257.7,222" fill="#175689"/>
+  <polygon points="397.7,222 446,162 501,237 397.7,372" fill="url(#w-up-band)" stroke="url(#w-up-band)" stroke-width="0.45" stroke-linejoin="round"/>
+  <polygon points="446,162 501,237 487.7,255.4" fill="#157ba6"/>
+  <polygon points="602.7,49.7 689.3,12 689.3,334.4 602.7,222" fill="url(#w-right-leg)" stroke="url(#w-right-leg)" stroke-width="0.45" stroke-linejoin="round"/>
+  <polygon points="446,162 556,162 689.3,334.4 602.7,372" fill="url(#w-down-band)" stroke="url(#w-down-band)" stroke-width="0.45" stroke-linejoin="round"/>
+</svg>
