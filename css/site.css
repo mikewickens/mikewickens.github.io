@@ -269,6 +269,20 @@ strong,b{color:var(--text);font-weight:600}
 @media (max-width:640px){.device img{height:220px}.device.is-wide img{height:170px}.device.is-watch img{height:130px}}
 
 .video-wide{max-width:960px;margin:0 auto}
+.video-more{max-width:960px;margin:clamp(2.5rem,5vw,3.5rem) auto 0;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(1.25rem,3vw,2.25rem);align-items:center}
+.video-more h3{margin-top:.6rem}
+.video-more p{margin-top:.6rem}
+@media (max-width:700px){.video-more{grid-template-columns:1fr}}
+/* YouTube: a still with a play button; the player loads only when pressed (js/site.js) */
+.yt{position:relative;display:block;overflow:hidden}
+.yt img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform .5s ease,filter .5s ease}
+.yt:hover img{transform:scale(1.03);filter:brightness(1.1)}
+.yt-play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:rgba(10,12,18,.6);
+  border:1px solid rgba(255,255,255,.4);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 10px 30px rgba(0,0,0,.45);transition:background .25s,transform .25s}
+.yt-play::after{content:"";position:absolute;left:28px;top:23px;border-style:solid;border-width:14px 0 14px 22px;border-color:transparent transparent transparent #fff}
+.yt:hover .yt-play,.yt:focus-visible .yt-play{background:var(--accent);transform:scale(1.06)}
+.video-more .yt-play{width:60px;height:60px;margin:-30px 0 0 -30px}
+.video-more .yt-play::after{left:22px;top:17px;border-width:12px 0 12px 19px}
 
 /* ---- spec sheet ---- */
 .spec{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;gap:1px;background:var(--border)}

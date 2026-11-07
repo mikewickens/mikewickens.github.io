@@ -44,6 +44,20 @@
     });
   }));
 
+  // YouTube stills (a.yt): load the player only when pressed, so pages stay light on phones.
+  document.querySelectorAll('a.yt[data-yt]').forEach(a => a.addEventListener('click', e => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+    e.preventDefault();
+    const f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(a.dataset.yt) + '?autoplay=1&rel=0&playsinline=1';
+    f.title = a.dataset.title || 'YouTube video';
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    f.allowFullscreen = true;
+    a.replaceWith(f);
+    f.focus();
+  }));
+
   // Gentle reveal as sections scroll into view.
   const reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && reveals.length) {
