@@ -43,6 +43,7 @@
 .theme-xgalaga-hd    {--accent:#4fd8e8;--accent-2:#3b6fe0}
 .theme-xgalaga-vr    {--accent:#8fa8ff;--accent-2:#ff7a3d}
 .theme-kung-fu       {--accent:#ff5a4f;--accent-2:#f5b93a}
+.theme-kung-fu-master-3d {--accent:#ff6a2b;--accent-2:#2fb4ff}
 .theme-classic-arcade {--accent:#00e5ff;--accent-2:#ff2e93}
 .theme-xgalaga       {--accent:#ff5d5d;--accent-2:#ffb547}
 .theme-chroma-vector {--accent:#ff4fd8;--accent-2:#4fe3ff}
@@ -392,3 +393,39 @@ strong,b{color:var(--text);font-weight:600}
   .reveal{opacity:1;transform:none;transition:none}
   *{transition-duration:.01ms!important}
 }
+
+/* ==========================================================================
+   Kung-Fu Master 3D: brush-lettered logo leads the hero
+   ========================================================================== */
+.hero-media.logo-first{order:2}
+.kfm-logo{width:100%;max-height:none;height:auto}
+@media (max-width:900px){
+  .hero-media.logo-first{order:0;margin:-1.5rem -.5rem -.5rem}
+  .kfm-logo{max-width:520px}
+}
+
+/* ---- code giveaway ---- */
+.gw-hero .wrap{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
+.gw-logo{max-width:440px;margin:0 0 1.2rem -.6rem}
+.gw-intro h1{margin-top:1rem;font-size:clamp(2.2rem,5vw,3.6rem)}
+.gw-card{padding:clamp(1.4rem,4vw,2.2rem);border-radius:var(--radius-l);border:1px solid var(--border-strong);text-align:center;
+  background:radial-gradient(90% 80% at 0% 0%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 60%),
+    radial-gradient(90% 80% at 100% 100%,color-mix(in srgb,var(--accent-2) 18%,transparent),transparent 60%),rgba(10,14,22,.88);
+  box-shadow:var(--shadow)}
+.gw-get{width:100%;font-size:1.1rem;padding:1.1rem 1.4rem}
+.gw-get:disabled{opacity:.55;cursor:default;transform:none}
+.gw-bot{display:flex;justify-content:center;min-height:65px;margin-bottom:1rem}
+.gw-bot[hidden]{display:none}
+.gw-left{margin-top:.9rem;font-size:.9rem;color:var(--live)}
+.gw-msg{margin-top:.9rem;font-size:.95rem;color:#c2cbd8}
+.gw-msg:empty{display:none}
+.gw-msg[data-kind="warn"]{color:var(--soon)}
+.gw-label{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.gw-code-row{display:flex;gap:.6rem;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:.5rem}
+.gw-code{font:700 clamp(1.5rem,5.5vw,2.1rem)/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;color:#fff;
+  padding:.5rem .9rem;border-radius:12px;background:rgba(0,0,0,.45);border:1px dashed var(--border-strong);user-select:all;word-break:break-all}
+.gw-result .cta-row{justify-content:center}
+.gw-small{margin-top:.8rem;font-size:.85rem;color:var(--faint)}
+.gw-result[hidden],.gw-left[hidden],.gw-small[hidden]{display:none}
+@media (max-width:900px){.gw-hero .wrap{grid-template-columns:1fr}.gw-logo{max-width:340px;margin-left:auto;margin-right:auto}.gw-intro{text-align:center}.gw-intro .lede{margin-inline:auto}}
+.gw-get[hidden]{display:none}
