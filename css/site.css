@@ -45,6 +45,7 @@
 .theme-kung-fu       {--accent:#ff5a4f;--accent-2:#f5b93a}
 .theme-kung-fu-master-3d {--accent:#ff6a2b;--accent-2:#2fb4ff}
 .theme-classic-arcade {--accent:#00e5ff;--accent-2:#ff2e93}
+.theme-hextris       {--accent:#ffb41f;--accent-2:#2f86ff}
 .theme-xgalaga       {--accent:#ff5d5d;--accent-2:#ffb547}
 .theme-chroma-vector {--accent:#ff4fd8;--accent-2:#4fe3ff}
 .theme-ibomb         {--accent:#ffc454;--accent-2:#ff5a4d}
@@ -467,3 +468,10 @@ strong,b{color:var(--text);font-weight:600}
 .tc[open] summary::after{content:"\2013"}
 .tc p{padding:0 1rem 1rem;font-size:.88rem;line-height:1.65;color:var(--muted);max-width:60rem}
 .tc[hidden],.tc-mine[hidden],.tc-none[hidden]{display:none}
+
+/* ==========================================================================
+   Hextris: World Tour: an iPhone screenshot beside the hero text
+   ========================================================================== */
+.hx-phone{height:clamp(420px,46vw,560px);width:auto;border-radius:30px;border:1px solid var(--border-strong);background:#000;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.85);cursor:zoom-in}
+@media (max-width:900px){.hx-phone{height:440px;border-radius:24px}}
