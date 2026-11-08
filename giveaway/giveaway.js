@@ -2,7 +2,8 @@
 // Google Apps Script web app; this page only asks it for one. No codes are stored in this repo.
 (function () {
   const CONFIG = {
-    api: '',              // Apps Script web app URL (ends in /exec). Empty: the giveaway shows as not open yet.
+    // Apps Script web app URL (ends in /exec). Empty: the giveaway shows as not open yet.
+    api: 'https://script.google.com/macros/s/AKfycbxUSeT7dn0R03vxFWWmb_21QdCHNUS6yanMV4kX4oj0BpwXcTMX5Sb-X6tU1uYjspE/exec',
     turnstileSiteKey: '', // optional Cloudflare Turnstile site key (bot check)
   };
 
