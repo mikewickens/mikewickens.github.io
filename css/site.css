@@ -443,3 +443,6 @@ strong,b{color:var(--text);font-weight:600}
 .gw-result[hidden],.gw-left[hidden],.gw-small[hidden]{display:none}
 @media (max-width:900px){.gw-hero .wrap{grid-template-columns:1fr}.gw-logo{max-width:340px;margin-left:auto;margin-right:auto}.gw-intro{text-align:center}.gw-intro .lede{margin-inline:auto}}
 .gw-get[hidden]{display:none}
+.gw-facts{margin-top:1rem;font-size:.95rem;font-weight:600;color:#e8edf5}
+.gw-expiry{color:#c2cbd8}
+.gw-placeholder{padding:1.2rem 1.4rem;border:2px dashed var(--soon);border-radius:var(--radius);color:var(--soon);font-weight:600;max-width:46rem}
