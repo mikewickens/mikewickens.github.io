@@ -32,7 +32,6 @@
   const say = (text, kind) => { msg.textContent = text; msg.dataset.kind = kind || ''; };
   const minutes = (s) => { const m = Math.max(1, Math.ceil(s / 60)); return m === 1 ? 'a minute' : m + ' minutes'; };
   const ERRORS = {
-    gone: 'All the codes have gone. Thank you for the interest! Follow along for the next giveaway.',
     closed: 'The giveaway is closed right now. Please check back soon.',
     bot: 'The quick check didn’t go through. Please try again.',
     bad_request: 'Something went wrong. Please reload the page and try again.',
@@ -49,11 +48,20 @@
     say('');
   }
 
-  function closed(text, label) {
+  function closed(text) {
     btn.disabled = true;
-    btn.textContent = label || 'Giveaway not open';
+    btn.textContent = 'Giveaway not open';
     bot.hidden = true;
     say(text);
+  }
+
+  // All codes gone: point people to the App Store instead.
+  function soldOut() {
+    btn.hidden = true;
+    bot.hidden = true;
+    left.hidden = true;
+    say('');
+    $('gw-soldout').hidden = false;
   }
 
   async function call(body) {
@@ -65,7 +73,7 @@
   async function status() {
     try {
       const r = await call({ action: 'status' });
-      if (!r.open) return closed(ERRORS[r.error] || ERRORS.closed, r.error === 'gone' ? 'All codes gone' : '');
+      if (!r.open) return r.error === 'gone' ? soldOut() : closed(ERRORS[r.error] || ERRORS.closed);
       left.textContent = r.left === 1 ? '1 code left' : r.left + ' codes left';
       left.hidden = false;
     } catch (e) { /* the claim will report any real problem */ }
@@ -82,7 +90,8 @@
         save(state);
         return showCode(r.code, r.again);
       }
-      if (r.error === 'gone' || r.error === 'closed') return closed(ERRORS[r.error], r.error === 'gone' ? 'All codes gone' : '');
+      if (r.error === 'gone') return soldOut();
+      if (r.error === 'closed') return closed(ERRORS.closed);
       say(r.error === 'limit'
         ? 'Lots of people are grabbing codes right now. Please try again in ' + minutes(r.retrySeconds || 60) + '.'
         : ERRORS[r.error] || ERRORS.bad_request, 'warn');
