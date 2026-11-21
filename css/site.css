@@ -476,3 +476,112 @@ strong,b{color:var(--text);font-weight:600}
 .hx-phone{height:clamp(420px,46vw,560px);width:auto;border-radius:30px;border:1px solid var(--border-strong);background:#000;
   box-shadow:0 30px 60px -20px rgba(0,0,0,.85);cursor:zoom-in}
 @media (max-width:900px){.hx-phone{height:440px;border-radius:24px}}
+
+/* ==========================================================================
+   Home: Pick your platform (tabs per platform, device chips, game tiles)
+   Platform colour comes from --pp/--pp-2; each game tile keeps its own
+   theme-* accent. Behaviour lives in the inline script after the section.
+   ========================================================================== */
+.pp{padding-bottom:0}
+.pp-apple  {--pp:#e3e8f0;--pp-2:#97a3b6}
+.pp-quest  {--pp:#6ea8ff;--pp-2:#a88bff}
+.pp-android{--pp:#3ddc84;--pp-2:#1fc4d6}
+.pp-windows{--pp:#3cc7f5;--pp-2:#3b82f6}
+
+.pp-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem}
+.pp-tab{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:.9rem;
+  padding:1rem 1.05rem;text-align:left;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface);cursor:pointer;
+  transition:border-color .2s ease,background .2s ease,transform .2s ease,box-shadow .25s ease}
+.pp-tab::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .3s ease;
+  background:radial-gradient(130% 150% at 0% 0%,color-mix(in srgb,var(--pp) 22%,transparent),transparent 62%)}
+.pp-tab:hover{transform:translateY(-2px);background:var(--surface-2);border-color:color-mix(in srgb,var(--pp) 38%,transparent)}
+.pp-tab:hover::before{opacity:.55}
+.pp-tab:focus-visible{outline:2px solid var(--pp);outline-offset:3px;border-radius:var(--radius)}
+.pp-tab[aria-selected="true"]{background:var(--bg-3);border-color:color-mix(in srgb,var(--pp) 70%,transparent);
+  box-shadow:0 20px 44px -24px color-mix(in srgb,var(--pp) 75%,transparent),inset 0 0 0 1px color-mix(in srgb,var(--pp) 22%,transparent)}
+.pp-tab[aria-selected="true"]::before{opacity:1}
+.pp-glyph{display:grid;place-items:center;width:46px;height:46px;border-radius:13px;color:var(--pp);
+  background:color-mix(in srgb,var(--pp) 10%,transparent);border:1px solid color-mix(in srgb,var(--pp) 26%,transparent);transition:color .25s,background .25s,border-color .25s}
+.pp-glyph svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.pp-tab[aria-selected="true"] .pp-glyph{color:#0b0f17;background:linear-gradient(135deg,var(--pp),var(--pp-2));border-color:transparent}
+.pp-tab-text{display:flex;flex-wrap:wrap;align-items:center;column-gap:.5rem;min-width:0}
+.pp-tab-name{font-family:var(--display);font-weight:700;font-size:1.06rem;letter-spacing:-.01em;color:#fff}
+.pp-tab-sub{flex-basis:100%;margin-top:.12rem;font-size:.78rem;line-height:1.35;color:var(--faint)}
+.pp-tab[aria-selected="true"] .pp-tab-sub{color:var(--muted)}
+.pp-here{display:inline-flex;align-items:center;gap:.3rem;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pp)}
+.pp-here::before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor;box-shadow:0 0 0 3px color-mix(in srgb,var(--pp) 25%,transparent)}
+.pp-here[hidden]{display:none}
+.pp-count{display:grid;place-items:center;min-width:2rem;height:2rem;padding:0 .55rem;border-radius:99px;font-size:.88rem;font-weight:700;
+  font-variant-numeric:tabular-nums;color:var(--muted);background:var(--surface-2);border:1px solid var(--border);transition:color .25s,background .25s,border-color .25s}
+.pp-tab[aria-selected="true"] .pp-count{color:#fff;background:color-mix(in srgb,var(--pp) 18%,transparent);border-color:color-mix(in srgb,var(--pp) 50%,transparent)}
+
+.pp-panel{margin-top:1rem;padding:clamp(1rem,2.6vw,1.6rem);border-radius:var(--radius-l);border:1px solid var(--border);
+  background:radial-gradient(70% 55% at 50% 0%,color-mix(in srgb,var(--pp) 7%,transparent),transparent 72%),var(--bg-2)}
+.pp-panel[hidden]{display:none}
+.pp-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.8rem 1.2rem;margin-bottom:1.1rem}
+.pp-status{font-size:.96rem;color:var(--muted)}
+.pp-status b{color:#fff}
+.pp-devices{display:flex;flex-wrap:wrap;gap:.4rem}
+.pp-devices button{padding:.42rem .85rem;border-radius:99px;border:1px solid var(--border-strong);background:transparent;color:var(--muted);
+  font-size:.84rem;font-weight:500;cursor:pointer;transition:color .2s,background .2s,border-color .2s}
+.pp-devices button:hover{color:#fff;background:var(--surface-2)}
+.pp-devices button:focus-visible{outline-color:var(--pp);border-radius:99px}
+.pp-devices button[aria-pressed="true"]{color:#0b0f17;background:var(--pp);border-color:var(--pp)}
+
+.pp-grid{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:.8rem}
+.pp-android .pp-grid{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.pp-game{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:56px minmax(0,1fr);grid-template-rows:auto 1fr auto;align-items:center;column-gap:.85rem;
+  padding:1rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface);
+  transition:transform .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease}
+.pp-game::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.6;transition:opacity .25s ease;
+  background:radial-gradient(90% 85% at 0% 0%,color-mix(in srgb,var(--accent) 17%,transparent),transparent 66%)}
+.pp-game:hover{transform:translateY(-3px);background:var(--surface-2);border-color:color-mix(in srgb,var(--accent) 45%,transparent);
+  box-shadow:0 22px 44px -26px color-mix(in srgb,var(--accent) 65%,transparent)}
+.pp-game:hover::before{opacity:1}
+.pp-game[hidden]{display:none}
+.pp-icon{width:56px;height:56px;border-radius:14px;border:1px solid var(--border-strong);background:#000;box-shadow:0 10px 22px -10px rgba(0,0,0,.9)}
+.pp-info{min-width:0}
+.pp-name{font-size:1rem;line-height:1.25}
+.pp-link{color:#fff}
+.pp-link:hover{text-decoration:none}
+.pp-link::after{content:"";position:absolute;inset:0;z-index:1;border-radius:inherit}
+.pp-link:focus-visible{outline:none}
+.pp-link:focus-visible::after{outline:2px solid var(--accent);outline-offset:-2px;border-radius:var(--radius)}
+.pp-kind{margin-top:.15rem;font-size:.82rem;line-height:1.35;color:var(--faint)}
+.pp-devs{grid-column:1/-1;align-self:start;display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.8rem}
+.pp-devs span{font-size:.7rem;font-weight:500;color:#aeb8c7;padding:.18rem .45rem;border-radius:6px;background:var(--surface-2);border:1px solid var(--border);
+  transition:color .2s,background .2s,border-color .2s}
+.pp-devs span.on{color:#0b0f17;background:var(--pp);border-color:var(--pp)}
+.pp-foot{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-top:.8rem;padding-top:.75rem;border-top:1px solid var(--border)}
+.pp-view{font-size:.84rem;font-weight:600;color:var(--accent)}
+.pp-view::after{content:" \2192"}
+.pp-get{position:relative;z-index:2;display:inline-flex;align-items:center;gap:.35rem;padding:.36rem .7rem;border-radius:99px;font-size:.78rem;font-weight:600;
+  color:var(--text);background:var(--surface-2);border:1px solid var(--border-strong);transition:color .2s,background .2s,border-color .2s}
+.pp-get:hover{text-decoration:none;color:#fff;background:color-mix(in srgb,var(--accent) 20%,transparent);border-color:color-mix(in srgb,var(--accent) 55%,transparent)}
+.pp-get svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pp-soon{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--soon)}
+.pp-game.is-soon .pp-icon{filter:saturate(.55) brightness(.85)}
+.pp-note{margin-top:1.1rem;font-size:.88rem;color:var(--faint)}
+
+@keyframes pp-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.pp-grid.is-entering>.pp-game:not([hidden]){animation:pp-in .42s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:calc(var(--i,0) * 40ms)}
+@media (prefers-reduced-motion:reduce){
+  .pp-grid.is-entering>.pp-game{animation:none}
+  .pp-tab:hover,.pp-game:hover{transform:none}
+}
+
+@media (max-width:980px){.pp-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){
+  .pp-tabs{gap:.6rem}
+  .pp-tab{grid-template-columns:minmax(0,1fr);align-items:start;align-content:start;gap:.7rem;padding:.9rem}
+  .pp-glyph{width:40px;height:40px;border-radius:11px}
+  .pp-glyph svg{width:23px;height:23px}
+  .pp-count{position:absolute;top:.85rem;right:.85rem;min-width:1.8rem;height:1.8rem;font-size:.8rem}
+  .pp-tab-name{font-size:1rem}
+  .pp-tab-sub{font-size:.74rem}
+  .pp-panel{padding:.9rem;border-radius:var(--radius)}
+  .pp-bar{margin-bottom:.9rem}
+  .pp-devices button{padding:.38rem .72rem;font-size:.8rem}
+  .pp-grid,.pp-android .pp-grid{grid-template-columns:minmax(0,1fr);gap:.65rem}
+  .pp-game{padding:.9rem}
+}
