@@ -345,7 +345,18 @@
   var named = function (k) { return tabs.filter(function (t) { return t.dataset.platform === k; })[0]; };
   if (named(mine)) named(mine).querySelector('.pp-here').hidden = false;
   select(named(linked) || named(mine) || tabs[0], false, false);
-  if (linked) requestAnimationFrame(function () { pp.scrollIntoView(); });
+  if (linked) {
+    // Wait for the whole page to parse (earlier, the page is too short to scroll that far), and again
+    // after images load unless the visitor has scrolled since. Jump instantly, not with smooth scrolling.
+    var jump = function () {
+      var root = document.documentElement, was = root.style.scrollBehavior;
+      root.style.scrollBehavior = 'auto';
+      pp.scrollIntoView();
+      root.style.scrollBehavior = was;
+    }, landed;
+    document.addEventListener('DOMContentLoaded', function () { jump(); landed = window.scrollY; });
+    window.addEventListener('load', function () { if (window.scrollY === landed) jump(); });
+  }
 })();
 </script>
 
