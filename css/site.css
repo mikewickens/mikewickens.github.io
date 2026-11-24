@@ -586,3 +586,20 @@ strong,b{color:var(--text);font-weight:600}
   .pp-grid,.pp-android .pp-grid{grid-template-columns:minmax(0,1fr);gap:.65rem}
   .pp-game{padding:.9rem}
 }
+
+/* ==========================================================================
+   Press kit (house-rhythm-vr/press/)
+   ========================================================================== */
+.prose ul{margin-top:1rem;padding-left:1.25rem;color:var(--muted)}
+.prose li{margin-top:.45rem}
+.prose li::marker{color:var(--accent)}
+.press-logo{width:100%;height:auto;max-height:none}
+.press-copy{max-width:46rem;padding:1.3rem 1.4rem;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border)}
+.press-copy+.press-copy{margin-top:1rem}
+.press-copy h3{font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem}
+.press-art{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:1rem;align-items:start}
+.press-art .shot img{aspect-ratio:auto;height:auto}
+.press-art .shot.on-tile img{padding:1.4rem;background:radial-gradient(circle at 50% 40%,#2a1240,#0a0e16 75%);object-fit:contain}
+.dl{margin-left:auto;font-size:.8rem;font-weight:600;white-space:nowrap}
+.dl::after{content:" ↓"}
+@media (min-width:700px){.press-art .wide{grid-column:span 2}}
