@@ -229,7 +229,7 @@ strong,b{color:var(--text);font-weight:600}
 @media (max-width:860px){.split{grid-template-columns:1fr}.split.flip>:first-child{order:0}}
 
 /* ---- steps / pipeline ---- */
-.steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;counter-reset:step}
+.steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:1rem;counter-reset:step}
 .step{padding:1.3rem 1.3rem 1.4rem;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border)}
 .step::before{counter-increment:step;content:counter(step,decimal-leading-zero);display:block;font-size:.75rem;font-weight:700;letter-spacing:.12em;color:var(--accent);margin-bottom:.5rem}
 .step p{font-size:.92rem;margin-top:.35rem}
@@ -237,7 +237,7 @@ strong,b{color:var(--text);font-weight:600}
 /* ==========================================================================
    Media: galleries, rails, video
    ========================================================================== */
-.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(320px,100%),1fr));gap:1rem}
 .shot{margin:0;border-radius:var(--radius);overflow:hidden;background:var(--surface);border:1px solid var(--border);transition:transform .2s,border-color .2s}
 .shot:hover{transform:translateY(-3px);border-color:var(--border-strong)}
 .shot img{width:100%;aspect-ratio:16/9;object-fit:cover;cursor:zoom-in}
@@ -295,6 +295,7 @@ strong,b{color:var(--text);font-weight:600}
 
 /* ---- prose (privacy etc.) ---- */
 .prose{max-width:46rem}
+.prose a{overflow-wrap:anywhere}
 .prose p{margin-top:1rem}
 .prose p:first-child{margin-top:0}
 
@@ -352,7 +353,7 @@ strong,b{color:var(--text);font-weight:600}
 .filters button[aria-pressed="true"]{color:var(--accent-ink);background:var(--accent);border-color:var(--accent)}
 
 /* app cards */
-.apps{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1.2rem}
+.apps{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(330px,100%),1fr));gap:1.2rem}
 .app-card{display:flex;flex-direction:column;border-radius:var(--radius-l);overflow:hidden;background:var(--bg-2);border:1px solid var(--border);color:inherit;
   transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
 .app-card:hover{text-decoration:none;transform:translateY(-4px);border-color:color-mix(in srgb,var(--accent) 45%,transparent);
@@ -529,7 +530,7 @@ strong,b{color:var(--text);font-weight:600}
 .pp-devices button:focus-visible{outline-color:var(--pp);border-radius:99px}
 .pp-devices button[aria-pressed="true"]{color:#0b0f17;background:var(--pp);border-color:var(--pp)}
 
-.pp-grid{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:.8rem}
+.pp-grid{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(290px,100%),1fr));gap:.8rem}
 .pp-android .pp-grid{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
 .pp-game{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:56px minmax(0,1fr);grid-template-rows:auto 1fr auto;align-items:center;column-gap:.85rem;
   padding:1rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface);
