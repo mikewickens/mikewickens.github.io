@@ -390,6 +390,10 @@ strong,b{color:var(--text);font-weight:600}
 .footer ul{list-style:none;display:grid;gap:.5rem}
 .footer ul a{color:var(--muted);font-size:.9rem}
 .footer ul a:hover{color:#fff}
+.footer .footer-social{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.25rem}
+.footer .footer-social a{display:inline-block;font-size:.82rem;font-weight:500;line-height:1;padding:.5rem .8rem;border-radius:999px;
+  background:var(--surface);border:1px solid var(--border);color:var(--muted)}
+.footer .footer-social a:hover{color:#fff;border-color:var(--border-strong);text-decoration:none}
 .footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);
   color:var(--faint);font-size:.8rem}
 .footer-bottom .legal{max-width:52rem}
