@@ -603,3 +603,5 @@ strong,b{color:var(--text);font-weight:600}
 .dl{margin-left:auto;font-size:.8rem;font-weight:600;white-space:nowrap}
 .dl::after{content:" ↓"}
 @media (min-width:700px){.press-art .wide{grid-column:span 2}}
+/* Meta Quest keys (29 characters) on the House Rhythm giveaway */
+.gw-code.is-long{font-size:clamp(.8rem,3.2vw,1.15rem);letter-spacing:.04em;word-break:normal;overflow-wrap:anywhere}
